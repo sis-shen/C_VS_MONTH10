@@ -1,0 +1,207 @@
+#define  _CRT_SECURE_NO_WARNINGS 1
+
+////问题 A: 22-循环-1-重修费
+//#include  <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int num = 0;
+//		
+//		for (int i = 0; i < n; i++)
+//		{
+//			int score = 0;
+//			scanf("%d", &score);
+//			if (score < 60)
+//			{
+//				num++;
+//			}
+//		}
+//
+//		printf("%d\n", 200 * num);
+//	}
+//	return 0;
+//}
+
+//***************************************************
+//问题 B: 22-循环-2-高斯求和
+//#include <stdio.h>
+//#include <math.h>
+//
+//void int_print(int num)
+//{
+//	printf("5");
+//	for (int i = 0; i < num - 1; i++)
+//	{
+//		printf("0");
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int num = 0;
+//	scanf("%d",&n);
+//	while(scanf("%d", &num) != EOF)
+//	{
+//		if (num == 0)
+//		{
+//			printf("1\n");
+//		}
+//
+//		else
+//		{
+//			int_print(num);
+//			int_print(num);
+//			printf("\n");
+//		}
+//
+//	}
+//	return 0;
+//}
+
+////*****************************
+////问题 C: 22-循环-2-七夕节
+//#include <stdio.h>
+//#include <math.h>
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		int num = 0;
+//		scanf("%d", &num);
+//
+//		int ret = 1;
+//		int j = 2;
+//		for ( j = 2; j < sqrt(num); j++)
+//		{
+//			if (num % j == 0)
+//			{
+//
+//				ret += j;
+//				ret += num / j;
+//			}
+//		}
+//		if (j == sqrt(num))
+//		{
+//			ret += j;
+//		}
+//		printf("%d\n", ret);
+//	}
+//	return 0;
+//}
+
+//************************************
+////问题 D: 22-循环-2-二进制数问题
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d",&n) != EOF)
+//	{
+//		int countA = 0;
+//		int countB = 0;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			int tmp = i;
+//			int count1 = 0;
+//			int count0 = 0;
+//			while (tmp)
+//			{
+//				if (tmp % 2 == 1)
+//				{
+//					count1++;
+//				}
+//				else
+//				{
+//					count0++;
+//				}
+//				tmp /= 2;
+//			}
+//			if (count1 > count0)
+//			{
+//				countA++;
+//			}
+//			else
+//			{
+//				countB++;
+//			}
+//		}
+//		printf("%d %d\n", countA, countB);
+//	}
+//	return 0;
+//}
+
+//*******************************************
+//问题 AB: 20级期中机试-小帅数数0（10分）
+
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int num = 0;
+//	while (scanf("%d", &num) != EOF)
+//	{
+//		int count10 = 0;
+//		int count5 = 0;
+//		for (int tmp = num; tmp > 0; tmp--)
+//		{
+//			int copy = tmp;
+//			if (tmp % 10 == 0)
+//			{
+//				while (1)//统计并消除0
+//				{
+//					if (copy % 10 != 0)
+//					{
+//						break;
+//					}
+//					else
+//					{
+//						count10++;
+//					}
+//					copy /= 10;
+//				}
+//			}
+//
+//			if (copy % 5 == 0)
+//			{
+//				while (1)//统计并消除0
+//				{
+//					if (copy % 5 != 0)
+//					{
+//						break;
+//					}
+//					else
+//					{
+//						count5++;
+//					}
+//					copy /= 5;
+//				}
+//			}
+//
+//		}
+//		int count = count5 + count10;
+//		printf("%d\n", count);
+//	}
+//	return 0;
+//}
+
+//********************************
+//问题 F: 22-基础-1-两数相加
+#include <stdio.h>
+
+int main()
+{
+	int a = 0;
+	int b = 0;
+	while (scanf("%d %d",&a,&b) != EOF)
+	{
+		printf("%d\n", a + b);
+	}
+	return 0;
+}
