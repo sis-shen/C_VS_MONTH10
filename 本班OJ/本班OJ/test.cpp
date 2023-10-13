@@ -193,15 +193,81 @@
 
 //********************************
 //问题 F: 22-基础-1-两数相加
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	while (scanf("%d %d",&a,&b) != EOF)
+//	{
+//		printf("%d\n", a + b);
+//	}
+//	return 0;
+//}
+
+//**************************
+////问题 E: 22-数学-1-求最大值
+//#include <stdio.h>
+//
+//int main()
+//{
+//	long long num = 0;
+//	while (scanf("%lld", &num) != EOF)
+//	{
+//
+//		long long ret = 0;
+//		if (num > 1)
+//		{
+//			ret = num * 2 - 1;
+//			printf("%lld\n", ret);
+//		}
+//		else
+//		{
+//			printf("2\n");
+//		}
+//	}
+//	
+//
+//	return 0;
+//}
+//*****************************
+////问题 G: 22-循环-1-质因数分解
+//#include <stdio.h>
+//#include <math.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		for (int i = 2; i < sqrt(n); i++)
+//		{
+//			if (n % i == 0)
+//			{
+//				printf("%d\n", n / i);
+//				break;
+//			}
+//		}
+//	}
+//	return 0;
+//}
+//************************************
+//问题 H: 22-循环-2-算算n！
 #include <stdio.h>
 
 int main()
 {
-	int a = 0;
-	int b = 0;
-	while (scanf("%d %d",&a,&b) != EOF)
+	int n = 0;
+	while (scanf("%d", &n) != EOF)
 	{
-		printf("%d\n", a + b);
+		int sum = 1;
+		for (int copy = n; copy > 0; copy--)
+		{
+			sum *= copy % 2009;
+			sum %= 2009;
+		}
+		printf("%d\n", sum);
 	}
 	return 0;
 }
