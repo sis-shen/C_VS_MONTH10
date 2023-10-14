@@ -253,21 +253,98 @@
 //	return 0;
 //}
 //************************************
-//问题 H: 22-循环-2-算算n！
+//问题 H: 22-循环-2-算算n！     !!!!!!!!!!!!!!时间超限
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int sum = 1;
+//		for (int copy = n; copy > 0; copy--)
+//		{
+//			sum *= copy % 2009;
+//			sum %= 2009;
+//		}
+//		printf("%d\n", sum);
+//	}
+//	return 0;
+//}
+
+//****************************
+//问题 K: 弟弟的作业
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-	int n = 0;
-	while (scanf("%d", &n) != EOF)
+	char str[20] = { 0};
+	int count = 0;
+	while (scanf("%s", &str)!=EOF )
 	{
-		int sum = 1;
-		for (int copy = n; copy > 0; copy--)
+
+		int cur = 0;
+		//提取第一个数
+		char str_num1[4] = { 'z'};
+		while (('0' <= str[cur] && str[cur] <= '9'))
 		{
-			sum *= copy % 2009;
-			sum %= 2009;
+			str_num1[cur] = str[cur];
+			cur++;
 		}
-		printf("%d\n", sum);
+		int num1 = atoi(str_num1);
+
+		//提取算数运算符
+		char sign = str[cur];
+		cur++;
+
+		//提取第二个数
+		char str_num2[4] = { 0};
+		int tmp_cur = 0;
+		while (('0' <= str[cur] && str[cur] <= '9'))
+		{
+			str_num2[tmp_cur] = str[cur];
+			cur++;
+			tmp_cur++;
+		}
+		int num2 = atoi(str_num2);
+
+		cur++;//跳过等号
+
+		if (str[cur] == '?')
+		{
+			continue;
+		}
+
+		//提取第三个数
+		char str_num3[4] = { 0};
+		tmp_cur = 0;
+		while (('0' <= str[cur] && str[cur] <= '9'))
+		{
+			str_num3[tmp_cur] = str[cur];
+			cur++;
+			tmp_cur++;
+		}
+		int num3 = atoi(str_num3);
+
+		if (sign == '+')
+		{
+			if (num1 + num2 == num3)
+			{
+				count++;
+			}
+		}
+		else
+		{
+			if (num1 - num2 == num3)
+			{
+				count++;
+			}
+		}
+		
 	}
+	printf("%d", count);
 	return 0;
 }
+
+char arr[] = "abcd";

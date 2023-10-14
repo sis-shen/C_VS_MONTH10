@@ -1,13 +1,12 @@
-//#define  _CRT_SECURE_NO_WARNINGS 1
+#define  _CRT_SECURE_NO_WARNINGS 1
 
 
 
 #include <stdio.h>
-
-
-
 int main()
 {
-	printf("%d", sizeof(unsigned long long));
+	//把小写转化成大写
+	int c = -1;
+	printf("%u", c);
 	return 0;
 }
