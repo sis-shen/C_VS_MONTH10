@@ -5,8 +5,10 @@
 #include <stdio.h>
 int main()
 {
-	//把小写转化成大写
-	int c = -1;
-	printf("%u", c);
+	//char arr1[20] = { 0 };
+	//char arr2[20] = { 0 };
+	//scanf("%s %s", arr1, arr2);
+	//printf("%d", arr1 == arr2);
+	printf("%d", 20 % 40);
 	return 0;
 }
