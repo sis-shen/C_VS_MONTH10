@@ -253,7 +253,7 @@
 //	return 0;
 //}
 //************************************
-//问题 H: 22-循环-2-算算n！     !!!!!!!!!!!!!!时间超限
+//问题 H: 22-循环-2-算算n！     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!时间超限
 //#include <stdio.h>
 //
 //int main()
@@ -274,77 +274,143 @@
 
 //****************************
 //问题 K: 弟弟的作业
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main()
+//{
+//	char str[20] = { 0};
+//	int count = 0;
+//	while (scanf("%s", &str)!=EOF )
+//	{
+//
+//		int cur = 0;
+//		//提取第一个数
+//		char str_num1[4] = { 'z'};
+//		while (('0' <= str[cur] && str[cur] <= '9'))
+//		{
+//			str_num1[cur] = str[cur];
+//			cur++;
+//		}
+//		int num1 = atoi(str_num1);
+//
+//		//提取算数运算符
+//		char sign = str[cur];
+//		cur++;
+//
+//		//提取第二个数
+//		char str_num2[4] = { 0};
+//		int tmp_cur = 0;
+//		while (('0' <= str[cur] && str[cur] <= '9'))
+//		{
+//			str_num2[tmp_cur] = str[cur];
+//			cur++;
+//			tmp_cur++;
+//		}
+//		int num2 = atoi(str_num2);
+//
+//		cur++;//跳过等号
+//
+//		if (str[cur] == '?')
+//		{
+//			continue;
+//		}
+//
+//		//提取第三个数
+//		char str_num3[4] = { 0};
+//		tmp_cur = 0;
+//		while (('0' <= str[cur] && str[cur] <= '9'))
+//		{
+//			str_num3[tmp_cur] = str[cur];
+//			cur++;
+//			tmp_cur++;
+//		}
+//		int num3 = atoi(str_num3);
+//
+//		if (sign == '+')
+//		{
+//			if (num1 + num2 == num3)
+//			{
+//				count++;
+//			}
+//		}
+//		else
+//		{
+//			if (num1 - num2 == num3)
+//			{
+//				count++;
+//			}
+//		}
+//		
+//	}
+//	printf("%d", count);
+//	return 0;
+//}
+
+//*************************
+//问题 T: 22-循环-1-鸽兔同园
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int head = 0;
+//	int feet = 0;
+//	scanf("%d %d", &head, &feet);
+//	while (head + feet)
+//	{
+//		int gugugu = (head * 4 - feet) / 2;
+//		int rabbit = (feet - head * 2) / 2;
+//		if (gugugu < 0 || rabbit < 0)
+//		{
+//			printf("Error\n");
+//		}
+//		else if ((gugugu * 2 + rabbit * 4 != feet) || (gugugu + rabbit != head))
+//		{
+//			printf("Error\n");
+//
+//		}
+//		else
+//		{
+//			printf("%d %d\n", gugugu, rabbit);
+//		}
+//		scanf("%d %d", &head, &feet);
+//
+//	}
+//	return 0;
+//}
+
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-	char str[20] = { 0};
-	int count = 0;
-	while (scanf("%s", &str)!=EOF )
+	int head = 0;
+	int feet = 0;
+	scanf("%d %d", &head, &feet);
+	while (head + feet)
 	{
-
-		int cur = 0;
-		//提取第一个数
-		char str_num1[4] = { 'z'};
-		while (('0' <= str[cur] && str[cur] <= '9'))
+		int gugugu = 0;
+		int flag = 0;
+		for (gugugu = 0; gugugu < head; gugugu++)
 		{
-			str_num1[cur] = str[cur];
-			cur++;
+			if (gugugu * 2 + (head - gugugu) * 4 == feet)
+			{
+				printf("%d %d\n", gugugu, head - gugugu);
+				flag = 1;
+				break;
+			}
 		}
-		int num1 = atoi(str_num1);
-
-		//提取算数运算符
-		char sign = str[cur];
-		cur++;
-
-		//提取第二个数
-		char str_num2[4] = { 0};
-		int tmp_cur = 0;
-		while (('0' <= str[cur] && str[cur] <= '9'))
+		if (flag)
 		{
-			str_num2[tmp_cur] = str[cur];
-			cur++;
-			tmp_cur++;
-		}
-		int num2 = atoi(str_num2);
-
-		cur++;//跳过等号
-
-		if (str[cur] == '?')
-		{
+			scanf("%d %d", &head, &feet);
 			continue;
 		}
 
-		//提取第三个数
-		char str_num3[4] = { 0};
-		tmp_cur = 0;
-		while (('0' <= str[cur] && str[cur] <= '9'))
-		{
-			str_num3[tmp_cur] = str[cur];
-			cur++;
-			tmp_cur++;
-		}
-		int num3 = atoi(str_num3);
+		printf("Error\n");
 
-		if (sign == '+')
-		{
-			if (num1 + num2 == num3)
-			{
-				count++;
-			}
-		}
-		else
-		{
-			if (num1 - num2 == num3)
-			{
-				count++;
-			}
-		}
-		
+
+		scanf("%d %d", &head, &feet);
 	}
-	printf("%d", count);
+
+
 	return 0;
 }
-
-char arr[] = "abcd";
