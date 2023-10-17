@@ -15,15 +15,9 @@
 
 int main()
 {
-	int arr[5] = { 0 };
-	int a = 0;
-
-	for (a = 0; a <=7; a++)
-	{
-		arr[a] = 0;
-		printf("1 ");
-	}
-
+	int a, b, c, d;
+	scanf("%d/%d+%d/%d", &a, &b, &c, &d);
+	printf("%d %d %d %d", a, b, c, d);
 
 	return 0;
 

@@ -233,25 +233,25 @@
 //}
 //*****************************
 ////问题 G: 22-循环-1-质因数分解
-//#include <stdio.h>
-//#include <math.h>
-//
-//int main()
-//{
-//	int n = 0;
-//	while (scanf("%d", &n) != EOF)
-//	{
-//		for (int i = 2; i < sqrt(n); i++)
-//		{
-//			if (n % i == 0)
-//			{
-//				printf("%d\n", n / i);
-//				break;
-//			}
-//		}
-//	}
-//	return 0;
-//}
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+	int n = 0;
+	while (~scanf("%d", &n))
+	{
+		for (int i = 2; i < sqrt(n); i++)
+		{
+			if (n % i == 0)
+			{
+				printf("%d\n", n / i);
+				break;
+			}
+		}
+	}
+	return 0;
+}
 //************************************
 //问题 H: 22-循环-2-算算n！     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!时间超限
 //#include <stdio.h>
@@ -378,39 +378,41 @@
 //	}
 //	return 0;
 //}
-
-#include <stdio.h>
-
-int main()
-{
-	int head = 0;
-	int feet = 0;
-	scanf("%d %d", &head, &feet);
-	while (head + feet)
-	{
-		int gugugu = 0;
-		int flag = 0;
-		for (gugugu = 0; gugugu < head; gugugu++)
-		{
-			if (gugugu * 2 + (head - gugugu) * 4 == feet)
-			{
-				printf("%d %d\n", gugugu, head - gugugu);
-				flag = 1;
-				break;
-			}
-		}
-		if (flag)
-		{
-			scanf("%d %d", &head, &feet);
-			continue;
-		}
-
-		printf("Error\n");
-
-
-		scanf("%d %d", &head, &feet);
-	}
-
-
-	return 0;
-}
+// 
+// 暴力求解
+//
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int head = 0;
+//	int feet = 0;
+//	scanf("%d %d", &head, &feet);
+//	while (head + feet)
+//	{
+//		int gugugu = 0;
+//		int flag = 0;
+//		for (gugugu = 0; gugugu < head; gugugu++)
+//		{
+//			if (gugugu * 2 + (head - gugugu) * 4 == feet)
+//			{
+//				printf("%d %d\n", gugugu, head - gugugu);
+//				flag = 1;
+//				break;
+//			}
+//		}
+//		if (flag)
+//		{
+//			scanf("%d %d", &head, &feet);
+//			continue;
+//		}
+//
+//		printf("Error\n");
+//
+//
+//		scanf("%d %d", &head, &feet);
+//	}
+//
+//
+//	return 0;
+//}
