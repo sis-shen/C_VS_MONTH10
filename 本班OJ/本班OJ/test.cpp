@@ -233,25 +233,25 @@
 //}
 //*****************************
 ////问题 G: 22-循环-1-质因数分解
-#include <stdio.h>
-#include <math.h>
-
-int main()
-{
-	int n = 0;
-	while (~scanf("%d", &n))
-	{
-		for (int i = 2; i < sqrt(n); i++)
-		{
-			if (n % i == 0)
-			{
-				printf("%d\n", n / i);
-				break;
-			}
-		}
-	}
-	return 0;
-}
+//#include <stdio.h>
+//#include <math.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		for (int i = 2; i < sqrt(n); i++)
+//		{
+//			if (n % i == 0)
+//			{
+//				printf("%d\n", n / i);
+//				break;
+//			}
+//		}
+//	}
+//	return 0;
+//}
 //************************************
 //问题 H: 22-循环-2-算算n！     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!时间超限
 //#include <stdio.h>
@@ -416,3 +416,227 @@ int main()
 //
 //	return 0;
 //}
+
+//*********************************
+
+//问题 I: 22-选择-1-分苹果
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0, m = 0,k=0;
+//	scanf("%d %d %d", &n, &m, &k);
+//	int left = n - m;
+//	if (left > 0 && left % k == 0)
+//	{
+//		printf("Happy!");
+//	}
+//	else
+//	{
+//		printf("UnHappy!");
+//	}
+//
+//	return 0;
+//}
+
+//***********************
+//????????????????????????????????????????????????????????????????????
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	int cost = 0;
+//	int city = 1;
+//	int min = 0;
+//	int flag = 1;
+//	scanf("%d", &n);
+//	scanf("%d", &min);//把第一个城市的费用放入min
+//	for (int new_city = 2; new_city <= n; new_city++)
+//	{
+//		//循环从第二个城市开始
+//		scanf(" %d", &cost);
+//		if (min == cost)
+//		{
+//			flag = 0;
+//		}
+//		else if (cost < min)
+//		{
+//			min = cost;
+//			city = new_city;
+//			flag = 1;//重置flag
+//		}
+//	}
+//	if (flag == 0)
+//	{
+//		printf("Fail\n");
+//	}
+//	else
+//	{
+//		printf("%d\n", city);
+//	}
+//	return 0;
+//}
+
+//***************************************
+//问题 J: 22-基础-1-加密算法
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int num = 0;
+//	while (scanf("%d", &num) != EOF)
+//	{
+//		int arr[4] = { 0 };
+//		for (int i = 0; i < 4; i++)
+//		{
+//			arr[3 - i] = num % 10;
+//			num /= 10;
+//		}
+//
+//		for (int i = 0; i < 4; i++)
+//		{
+//			arr[i] = (arr[i] + 9) % 10;
+//		}
+//		int ret = arr[2] * 1000 + arr[3] * 100 + arr[0] * 10 + arr[1];
+//		printf("The encrypted number is %d\n", ret);
+//	}
+//	return 0;
+//}
+
+//***************************
+//问题 N: 22-数组-2-众数问题
+
+//版本一，假定从大到小输入
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main()
+//{
+//	int mode = 0;
+//	int mode_sum = 1;
+//	int n = 0;
+//	int num = 0;
+//	int num_sum = 1;
+//	scanf("%d", &n);
+//	scanf("%d", &num);
+//	mode = num;
+//	for (int i = 0; i < n-1; i++)
+//	{
+//		int prev = num;
+//		scanf("%d", &num);
+//		if (num == prev)
+//		{
+//			num_sum++;
+//		}
+//		else
+//		{
+//			mode_sum = mode_sum > num_sum ? mode_sum : num_sum;
+//			mode = mode_sum > num_sum ? mode : prev;
+//			num_sum = 1;
+//
+//		}
+//	}
+//	mode_sum = mode_sum > num_sum ? mode_sum : num_sum;
+//	mode = mode_sum > num_sum ? mode : num;
+//
+//	printf("%d\n%d", mode,mode_sum);
+//
+//
+//
+//	return 0;
+//}
+
+//版本二
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int* arr = (int*)malloc(sizeof(int) * n);
+//	//存入数据
+//	for (int i = 0; i < n; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	qsort(arr, n, sizeof(int), cmp_int);
+//
+//	int left = 0;
+//	int right = 0;
+//	int mode = 0;
+//	int mode_sum = 0;
+//	for (right = 0; right < n; right++)
+//	{
+//		if (arr[left] != arr[right])
+//		{
+//			if (right - left > mode_sum)
+//			{
+//				mode_sum = right - left;
+//				mode = arr[left];
+//			}
+//			left = right;
+//		}
+//	}
+//	if (right - left > mode_sum)
+//	{
+//		mode_sum = right - left;
+//		mode = arr[left];
+//	}
+//	printf("%d\n%d", mode, mode_sum);
+//	return 0;
+//}
+
+//***********************************************
+//问题 O: 22-函数-2-真假硬币
+//#include <stdio.h>
+//#include <math.h>
+//
+//int main()
+//{
+//	int num = 0;
+//	scanf("%d", &num);
+//	while (num)
+//	{
+//		int ret = 0;
+//		if (num == 1)
+//		{
+//			printf("0\n");
+//		}
+//		while ((pow(3, ret) - 1) /2 < num)
+//		{
+//			ret++;
+//		}
+//		printf("%d\n", ret);
+//		scanf("%d", &num);
+//	}
+//	return 0;
+//}
+
+//************************************
+//问题 Q: 22-循环-1-平方和与立方和
+#include <stdio.h>
+
+int main()
+{
+	int left = 0;
+	int right = 0;
+	while (scanf("%d %d", &left, &right) != EOF)
+	{
+		int even = 0;
+		int odd = 0;
+		
+		int step = 1;
+		while (step * step < right)
+		{
+
+		}
+	}
+	return 0;
+}
