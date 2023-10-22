@@ -253,7 +253,7 @@
 //	return 0;
 //}
 //************************************
-//问题 H: 22-循环-2-算算n！     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!时间超限
+//问题 H: 22-循环-2-算算n！     
 //#include <stdio.h>
 //
 //int main()
@@ -262,6 +262,11 @@
 //	while (scanf("%d", &n) != EOF)
 //	{
 //		int sum = 1;
+//		if (n >= 2009)
+//		{
+//			printf("0\n");
+//			continue;
+//		}
 //		for (int copy = n; copy > 0; copy--)
 //		{
 //			sum *= copy % 2009;
@@ -621,22 +626,303 @@
 
 //************************************
 //问题 Q: 22-循环-1-平方和与立方和
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int left = 0;
+//	int right = 0;
+//	while (scanf("%d %d", &left, &right) != EOF)
+//	{
+//		int even = 0;
+//		int odd = 0;
+//		
+//		for (int i = left; i <= right; i++)
+//		{
+//			if (i % 2 == 0)
+//			{
+//				even += i * i;
+//			}
+//			else
+//			{
+//				odd += i * i * i;
+//			}
+//		}
+//		printf("%d %d\n", even, odd);;
+//	}
+//	return 0;
+//}
+
+//**************************************
+//问题 R: 幸运儿
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int arr[50] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			arr[i] = i + 1;
+//		}
+//		int sum = n;
+//		int step = 2;
+//		int begin = 1;
+//		int count = 1;
+//		while (sum > 1)
+//		{
+//			for (int i = begin; i < n; i += step)
+//			{
+//				if (sum == 2)
+//				{
+//					sum--;
+//					printf("\n1 %d\n", arr[i]);
+//					break;
+//				}
+//				sum--;
+//				printf("%d ", arr[i]);
+//				arr[i] = -1;
+//
+//			}
+//			begin += step / 2;
+//			step *= 2;
+//
+//		}
+//	}
+//	return 0;
+//}
+
+//*********************************************
+////问题 S: 22-循环-2-敲七
+//#include <stdio.h>
+//
+//int is_include7(int x)
+//{
+//	while (x)
+//	{
+//		if (x % 10 == 7)
+//		{
+//			return 1;
+//		}
+//		else
+//		{
+//			x /= 10;
+//		}
+//	}
+//	return 0;
+//}
+//
+//int is_7times(int x)
+//{
+//	if (x % 7 == 0)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int sum = 0;
+//	scanf("%d", &n);
+//	for (int i = 1; i <= n; i++)
+//	{
+//		if (is_include7(i) || is_7times(i))
+//		{
+//			sum++;
+//		}
+//	}
+//	printf("%d", sum);
+//	return 0;
+//}
+
+//****************************************************
+//问题 W: 22-选择-2-表达式值
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a, b, c;
+//	while (scanf("%d %d %d", &a, &b, &c) != EOF)
+//	{
+//		int max = 0;
+//		int result = a + b + c;
+//		max = result > max ? result : max;
+//		
+//		result = (a + b) * c;
+//		max = result > max ? result : max;
+//
+//		result = a * (b + c);
+//		max = result > max ? result : max;
+//
+//		result = a * b * c;
+//		max = result > max ? result : max;
+//
+//		printf("%d\n", max);
+//
+//
+//	}
+//	return 0;
+//}
+
+//***************************************
+//#include <stdio.h>
+//#include <math.h>
+//
+//int main()
+//{
+//	int t = 0;
+//	scanf("%d", &t);
+//	for (int i = 0; i < t; i++)
+//	{
+//		int n = 0;
+//		scanf("%d", &n);
+//		printf("%d\n", (int)pow(2, n - 1));
+//	}
+//	return 0;
+//}
+
+//******************************
+//问题 Y: 22-循环-1-发工资
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int sum = 0;
+//		int cost = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			scanf("%d", &cost);
+//			while (cost>=100)
+//			{
+//				sum++;
+//				cost -= 100;
+//			}
+//			while (cost >= 50)
+//			{
+//				sum++;
+//				cost -= 50;
+//			}
+//
+//			while (cost >= 10)
+//			{
+//				sum++;
+//				cost -= 10;
+//			}
+//			while (cost >= 5)
+//			{
+//				sum++;
+//				cost -= 5;
+//			}
+//			while (cost >= 2)
+//			{
+//				sum++;
+//				cost -= 2;
+//			}
+//			if (cost == 1)
+//			{
+//				sum++;
+//			}
+//
+//		}
+//
+//		printf("%d\n", sum);
+//
+//
+//	}
+//
+//	return 0;
+//}
+
+///********************
+//问题 CN: Muniar的胡思乱写【1】—— 圆柱
+//#include <stdio.h>
+//
+//const double PI = 3.14;
+//
+//int main()
+//{
+//	double d = 0;
+//	double h = 0;
+//	while (scanf("%lf %lf", &d, &h) != EOF)
+//	{
+//		double S = PI * d * d / 2 + PI * d * h;
+//		double V = PI * d * d / 4 * h;
+//		printf("%.2lf %.2lf\n", S, V);
+//	}
+//
+//	return 0;
+//}
+
+//*********************************************
+//问题 Z: WOWO爬水井                                 未知错误
+//#include <stdio.h>
+//
+//int main()
+//{
+//	double height, up, down, fall;
+//	while (scanf("%lf %lf %lf %lf",&height,&up,&down,&fall) != EOF)
+//	{
+//		double cur = 0;
+//		double speed = up;
+//		if (height + up + down + fall == 0)
+//		{
+//			break;
+//		}
+//
+//		double step = up * fall / 100;
+//		int flag = 0;
+//		int day = 0;
+//
+//		while (1)
+//		{
+//			day++;
+//			cur = cur + speed;
+//			if (cur > height)
+//			{
+//				printf("success on day %d\n", day);
+//				break;
+//			}
+//
+//			speed -= step;
+//			if (speed < 0)
+//			{
+//				speed = 0;
+//			}
+//
+//			cur -= down;
+//			if (cur < 0)
+//			{
+//				printf("failure on day %d\n", day);
+//				break;
+//			}
+//		}
+//
+//	}
+//	return 0;
+//}
+
+//**************************************************************
+//问题 AA: 22-循环-2-勾股数
 #include <stdio.h>
 
 int main()
 {
-	int left = 0;
-	int right = 0;
-	while (scanf("%d %d", &left, &right) != EOF)
+	int a, b;
+	while (scanf("%d %d", &a, &b) != EOF)
 	{
-		int even = 0;
-		int odd = 0;
 		
-		int step = 1;
-		while (step * step < right)
-		{
-
-		}
 	}
+
+
 	return 0;
 }
