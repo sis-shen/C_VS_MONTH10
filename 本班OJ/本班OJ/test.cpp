@@ -880,7 +880,6 @@
 //		}
 //
 //		double step = up * fall / 100;
-//		int flag = 0;
 //		int day = 0;
 //
 //		while (1)
@@ -912,17 +911,152 @@
 //}
 
 //**************************************************************
-//问题 AA: 22-循环-2-勾股数
+//问题 AC: 20级期中机试-小帅的沙漏（10分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	for (int round = 0; round < n; round++)
+//	{
+//		int size = 0;
+//		scanf("%d", &size);
+//		//打印上盖子
+//		for (int i = 0; i < size - 1; i++)
+//		{
+//			printf("-");
+//		}
+//		printf("\n");
+//
+//		printf("\\");
+//		for (int i = 0; i < size - 3; i++) printf(" ");
+//		printf("/\n");
+//
+//		for (int i = 0; i < size / 2 - 2; i++)
+//		{
+//			for (int j = 0; j < i + 1; j++) printf(" ");
+//			printf("\\");
+//			for (int j = 0; j < size-5 - i * 2; j++) printf("*");
+//			printf("/\n");
+//		}
+//
+//		for (int i = 0; i < size / 2 - 1; i++)
+//		{
+//			for (int j = 0; j < size/2-2 - i; j++) printf(" ");
+//			printf("/");
+//			for (int j = 0; j < i * 2 + 1; j++)
+//			{
+//				if (j == i)
+//				{
+//					printf("*");
+//				}
+//				else
+//				{
+//					printf(" ");
+//				}
+//			}
+//			printf("\\\n");
+//		}
+//
+//		for (int i = 0; i < size - 1; i++)
+//		{
+//			printf("-");
+//		}
+//		printf("\n\n");
+//	}
+//
+//	return 0;
+//}
+
+//*************************************
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int x = 0;
+//	while (scanf("%d", &x) != EOF)
+//	{
+//		if (x < 1)
+//		{
+//			printf("%d\n", x * x);
+//		}
+//		else if (1 <= x && x < 10)
+//		{
+//			printf("%d\n", 2 * x - 1);
+//		}
+//		else
+//		{
+//			printf("%d\n", 3 * x - 12);
+//		}
+//	}
+//	return 0;
+//}
+
+//**********************
+//问题 AE: 20级期中机试-小帅切西瓜（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int num = 0;
+//	while (scanf("%d", &num) != EOF)
+//	{
+//		if (num % 2 == 0 && num>=4)
+//		{
+//			printf("YES\n");
+//		}
+//		else
+//		{
+//			printf("NO\n");
+//		}
+//	}
+//	return 0;
+//}
+
+//******************************************
+//问题 AF: 20级期中机试-小帅买包子（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a, b, c, d, e, f;
+//	while (scanf("%d %d %d %d %d %d", &a, &b, &c, &d, &e, &f)!=EOF)
+//	{
+//		int money = a * 100 + b * 10 + c;
+//		int cost = d * 100 + e * 10 + f;
+//		printf("%d\n", money / cost);
+//	}
+//
+//
+//	return 0;
+//}
+
+//************************************
+//问题 AG: 20级期中机试-小帅数CSU（20分）
+
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-	int a, b;
-	while (scanf("%d %d", &a, &b) != EOF)
+	char arr[1000000] = { 0 };
+	while (scanf("%s", arr) != EOF)
 	{
-		
+		int C = 0;
+		int S = 0;
+		int U = 0;
+		for (int i = 0; i < strlen(arr); i++)
+		{
+			if (arr[i] == 'C') C++;
+			if (arr[i] == 'S') S++;
+			if (arr[i] == 'U') U++;
+		}
+
+		int min = C;
+		min = S < min ? S : min;
+		min = U < min ? U : min;
+		printf("%d\n", min);
 	}
-
-
 	return 0;
 }
