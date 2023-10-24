@@ -1035,28 +1035,441 @@
 //************************************
 //问题 AG: 20级期中机试-小帅数CSU（20分）
 
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char arr[1000000] = { 0 };
+//	while (scanf("%s", arr) != EOF)
+//	{
+//		int C = 0;
+//		int S = 0;
+//		int U = 0;
+//		for (int i = 0; i < strlen(arr); i++)
+//		{
+//			if (arr[i] == 'C') C++;
+//			if (arr[i] == 'S') S++;
+//			if (arr[i] == 'U') U++;
+//		}
+//
+//		int min = C;
+//		min = S < min ? S : min;
+//		min = U < min ? U : min;
+//		printf("%d\n", min);
+//	}
+//	return 0;
+//}
+
+//***********************************************
+//问题 AH: 22-循环-1-分数相加
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int deno1, deno2, member1, member2;
+//	while (scanf("%d/%d+%d/%d", &member1, &deno1, &member2, &deno2) != EOF)
+//	{
+//		//相加
+//		int new_deno = deno1 * deno2;
+//		int new_member = member1 * deno2 + member2 * deno1;
+//
+//		//化简
+//		if (new_member % new_deno == 0)
+//		{
+//			printf("%d\n", new_member / new_deno);
+//			continue;
+//		}
+//		else
+//		{
+//			//寻找最大公约数
+//			int common = 1;
+//			for (int i = 1; i <= (new_deno < new_member ? new_deno : new_member); i++)
+//			{
+//				if (new_deno % i == 0 && new_member % i == 0)
+//				{
+//					common = i;
+//				}
+//			}
+//
+//			new_member /= common;
+//			new_deno /= common;
+//			printf("%d/%d\n", new_member, new_deno);
+//		}
+//	}
+//	return 0;
+//}
+
+//***********************************************************
+//问题 AI: 浩南有选择困难症（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int city = 1;
+//		int cost = 0;
+//		int flag = 1;
+//
+//		scanf("%d", &cost);//获取第一个城市
+//
+//		int min = cost;
+//
+//		for (int i = 2; i <= n; i++)
+//		{
+//			scanf("%d", &cost);
+//			if (min == cost)
+//			{
+//				flag = 0;
+//			}
+//			else if (cost < min)
+//			{
+//				flag = 1;
+//				min = cost;
+//				city = i;
+//			}
+//		}
+//
+//		if (flag) printf("%d\n", city);
+//		else printf("Fail\n");
+//		
+//
+//	}
+//	return 0;
+//}
+
+//************************************
+//问题 AJ: 矩阵转置（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int arr[100][100] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			for (int j = 0; j < n; j++)
+//			{
+//				scanf("%d", &arr[j][i]);
+//			}
+//		}
+//
+//		for (int i = 0; i < n; i++)
+//		{
+//			for (int j = 0; j < n; j++)
+//			{
+//				if (j) printf(" ");
+//				printf("%d", arr[i][j]);
+//			}
+//			printf("\n");
+//		}
+//	}
+//	return 0;
+//}
+
+//******************************************
+//问题 AK: 无限整数序列（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int pos = 0;
+//	while (scanf("%d", &pos) != EOF)
+//	{
+//		char str[10005] = { 0 };
+//		int num = 0;
+//		str[0] = '0';
+//		int count = 0;
+//		while (count < pos)
+//		{
+//			num++;
+//			sprintf(str + count + 1, "%d", num);
+//			int digit = 1;
+//			int copy = num;
+//			while (copy /= 10)
+//			{
+//				digit++;
+//			}
+//			count += digit;
+//		}
+//		printf("%d\n", str[pos]-48);
+//	}
+//
+//	return 0;
+//}
+
+//****************************
+//问题 AL: 20级期末机试1-玩骰子（10分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int T = 0;
+//	scanf("%d", &T);
+//	for (int round = 0; round < T; round++)
+//	{
+//		char arr[10] = { 0 };
+//		int m = 0;
+//		scanf("%s %d", arr, &m);
+//
+//		int cnt[7] = { 0 };
+//		for (int i = 1; i < 7; i++)
+//		{
+//			if (arr[i - 1]-48 == 1)
+//			{
+//				for (int j = 1; j < 7; j++)
+//				{
+//					cnt[j]++;
+//				}
+//			}
+//			else
+//			{
+//				cnt[arr[i-1]-48]++;
+//			}
+//		}
+//
+//		for (int i = 1; i <= m; i++)
+//		{
+//			int num, guess;
+//			scanf("%d %d", &num, &guess);
+//			if (cnt[guess] >= num)
+//			{
+//				printf("%d:true\n", i);
+//			}
+//			else
+//			{
+//				printf("%d:false\n", i);
+//			}
+//		}
+//		printf("\n");
+//
+//
+//	}
+//	return 0;
+//}
+
+//****************************************************
+//问题 AM: 20级期末机试1-幸运数（20分）
+//#include <stdio.h>
+//
+//int isLucky(int x)
+//{
+//	if (x % 6 == 0) return 1;
+//
+//	int num = 0;
+//	int count = 1;
+//	while (count <= 3)
+//	{
+//		num = x % 10;
+//		if (num == 6) return 1;
+//		else
+//		{
+//			x /= 10;
+//			count++;
+//		}
+//	}
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int cnt = 0;
+//		int number = 1;
+//		while (1)
+//		{
+//			if (isLucky(number))
+//			{
+//				cnt++;
+//			}
+//			if (cnt == n)
+//			{
+//				printf("%d\n", number);
+//				break;
+//			}
+//
+//			number++;
+//		}
+//	}
+//	return 0;
+//}
+
+//**************************************
+////问题 AN: 20级期末机试1-回文串（20分）
+//#include <stdio.h>
+//#include <string.h>
+//
+//int isPalindrome(char str[], int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	while (left < right)
+//	{
+//		if (str[left] != str[right])
+//		{
+//			return 0;
+//		}
+//		left++;
+//		right--;
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char str[60];
+//	while (~scanf("%s", str))
+//	{
+//		int sz = strlen(str);
+//		if (!isPalindrome(str, sz))
+//		{
+//			printf("NO\n");
+//		}
+//		else
+//		{
+//			int cnt = 0;
+//			int letter[30] = { 0 };
+//			for (int i = 0; i < sz; i++)
+//			{
+//				letter[str[i] - 97]++;
+//			}
+//
+//			for (int i = 0; i < 26; i++)
+//			{
+//				if (letter[i])
+//				{
+//					cnt++;
+//				}
+//			}
+//
+//			printf("YES %d\n", cnt);
+//
+//		}
+//	}
+//	return 0;
+//}
+
+//********************************************
+//问题 AP: 20级期末机试1-评委打分（10分）
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//typedef struct player
+//{
+//	char number[4];
+//	double score;
+//}player;
+//
+//int cmp(const void* e1, const void* e2)
+//{
+//	double ret = *(double*)e1 - *(double*)e2;
+//	if (ret > 0) return 1;
+//	if (ret == 0) return 0;
+//	if (ret < 0) return -1;
+//}
+//
+//int cmp_player(const void* e1, const void* e2)
+//{
+//	player* E1 = (player*)e1;
+//	player* E2 = (player*)e2;
+//
+//	if (E1->score == E2->score)
+//	{
+//		return atoi(E1->number) - atoi(E2->number);
+//	}
+//	else
+//	{
+//		if (E1->score > E2->score) return -1;
+//		else return 1;
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		player list[100] = { 0 };
+//		//储存成绩
+//		for (int i = 0; i < n; i++)
+//		{
+//			scanf("%s", &list[i].number);
+//
+//			double score[5] = { 0 };
+//			for (int j = 0; j < 5; j++)
+//			{
+//				scanf("%lf", &score[j]);
+//			}
+//			qsort(score, 5, sizeof(double), cmp);
+//
+//			double sum = 0;
+//
+//			for (int j = 1; j < 4; j++)
+//			{
+//				sum += score[j];
+//			}
+//
+//			list[i].score = sum / 3.0;
+//			
+//		}
+//
+//		qsort(list, n, sizeof(player), cmp_player);
+//
+//		for (int i = 0; i < n; i++)
+//		{
+//			printf("%s %.2lf\n", list[i].number, list[i].score);
+//		}
+//	}
+//	return 0;
+//}
+
+//**************************************
+//问题 AQ: 20级期末机试1-变数（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int num = 0;
+//	while (~scanf("%d", &num))
+//	{
+//		if (num == 0) break;
+//		int sum = 0;
+//		while (num)
+//		{
+//			if (0 < num % 16 && num % 16 <= 9)
+//			{
+//				sum += num % 16;
+//			}
+//			num /= 16;
+//		}
+//		printf("%d\n", sum);
+//	}
+//
+//	return 0;
+//}
+
+//*********************************
+//问题 AR: 20级期末机试2-对称画（20分）
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
-	char arr[1000000] = { 0 };
-	while (scanf("%s", arr) != EOF)
+	int n = 0;
+	while (~scanf("%d", &n))
 	{
-		int C = 0;
-		int S = 0;
-		int U = 0;
-		for (int i = 0; i < strlen(arr); i++)
-		{
-			if (arr[i] == 'C') C++;
-			if (arr[i] == 'S') S++;
-			if (arr[i] == 'U') U++;
-		}
 
-		int min = C;
-		min = S < min ? S : min;
-		min = U < min ? U : min;
-		printf("%d\n", min);
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n - 1 - i; j++) printf(" ");
+			for (int j = 0; j < i + 1; j++) printf("%c", j + 97);
+			for(int j = 0;j)
+		}
 	}
 	return 0;
 }
