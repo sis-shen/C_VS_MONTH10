@@ -874,19 +874,19 @@
 //	{
 //		double cur = 0;
 //		double speed = up;
-//		if (height + up + down + fall == 0)
-//		{
-//			break;
-//		}
+//		//if (!(height + up + down + fall))
+//		//{
+//		//	break;
+//		//}
 //
-//		double step = up * fall / 100;
+//		double step = up * fall / 100.0;
 //		int day = 0;
 //
-//		while (1)
+//		while (height + up + down + fall)
 //		{
 //			day++;
 //			cur = cur + speed;
-//			if (cur > height)
+//			if (cur - height >0)
 //			{
 //				printf("success on day %d\n", day);
 //				break;
@@ -1456,20 +1456,295 @@
 
 //*********************************
 //问题 AR: 20级期末机试2-对称画（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	int junk = 0;
+//	scanf("%d", &junk);
+//	while (~scanf("%d", &n))
+//	{
+//		int flag = n % 2;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= 2 * n - 1; j++)
+//			{
+//				if (n - i+1 <= j && j <= n)
+//				{
+//					printf("%c", 96 + j - (n - i));
+//				}
+//				else if (n < j && j <= n + i-1)
+//				{
+//					printf("%c", 96 + n + i - j);
+//				}
+//
+//				else printf(" ");
+//			}
+//			printf("\n");
+//		}
+//
+//		for (int i = n; i >=1 ; i--)
+//		{
+//			for (int j = 1; j <= 2 * n - 1; j++)
+//			{
+//				if (n - i + 1 == j || j == n + i - 1)
+//				{
+//					printf("%c", 'a');
+//				}
+//
+//
+//				else printf(" ");
+//			}
+//			printf("\n");
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//**************************************
+//问题 AS: 20级期末机试2-素数串（10分）
+//#include <stdio.h>
+//#include <string.h>
+//#include <math.h>
+//
+//int is_prime(int x)
+//{
+//	if ( x == 1) return 0;
+//	if (x == 2) return 1;
+//	for (int i = 2; i < x; i++)
+//	{
+//		if (x % i == 0) return 0;
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char str[1005];
+//	while (~scanf("%s", str))
+//	{
+//		int last = 0;
+//		int sz = strlen(str);
+//		int flag = 0;
+//
+//		for (int i = 0; i < strlen(str)/3*3 ; i+=3)
+//		{
+//			int num = (str[i] - 48) * 100 + (str[i + 1] - 48) * 10 + str[i + 2] - 48;
+//			if (!is_prime(num))
+//			{
+//				flag = 1;
+//				break;
+//			}
+//		}
+//
+//		for (int i = strlen(str) / 3 * 3; i < strlen(str); i++)
+//		{
+//			last = last * 10 + str[i] - 48;
+//		}
+//		if (flag || !is_prime(last))
+//		{
+//			printf("NO\n");
+//			continue;
+//		}
+//		else printf("YES\n");
+//	}
+//	return 0;
+//}
+
+//**********************************************
+//问题 AT: 20级期末机试2-光荣榜（10分）
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//typedef struct Stu
+//{
+//	char name[15];
+//	int score;
+//	int EN;
+//	int CN;
+//	int Math;
+//}Stu;
+//
+//int cmpByName(char* str1, char* str2)
+//{
+//	int cur = 0;
+//	while (str1[cur] == str2[cur])
+//	{
+//		cur++;
+//	}
+//
+//	return str1[cur] - str2[cur];
+//}
+//
+//int cmpByscore(const void* e1, const void* e2)
+//{
+//	Stu* p1 = (Stu*)e1;
+//	Stu* p2 = (Stu*)e2;
+//
+//	if (p1->score != p2->score)
+//	{
+//		return p2->score - p1->score;
+//	}
+//	else
+//	{
+//		return cmpByName(p1->name, p2->name);
+//	}
+//}
+//
+//int cmpByCN(const void* e1, const void* e2)
+//{
+//	Stu* p1 = (Stu*)e1;
+//	Stu* p2 = (Stu*)e2;
+//
+//	if (p1->CN != p2->CN)
+//	{
+//		return p2->CN - p1->CN;
+//	}
+//	else
+//	{
+//		return cmpByName(p1->name, p2->name);
+//	}
+//}
+//
+//int cmpByMath(const void* e1, const void* e2)
+//{
+//	Stu* p1 = (Stu*)e1;
+//	Stu* p2 = (Stu*)e2;
+//
+//	if (p1->Math != p2->Math)
+//	{
+//		return p2->Math - p1->Math;
+//	}
+//	else
+//	{
+//		return cmpByName(p1->name, p2->name);
+//	}
+//}
+//
+//int cmpByEN(const void* e1, const void* e2)
+//{
+//	Stu* p1 = (Stu*)e1;
+//	Stu* p2 = (Stu*)e2;
+//
+//	if (p1->EN != p2->EN)
+//	{
+//		return p2->EN - p1->EN;
+//	}
+//	else
+//	{
+//		return cmpByName(p1->name, p2->name);
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		Stu Lst[105] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			scanf("%s", Lst[i].name);
+//			scanf("%d %d %d", &Lst[i].CN, &Lst[i].Math, &Lst[i].EN);
+//			Lst[i].score = Lst[i].CN + Lst[i].Math + Lst[i].EN;
+//		}
+//
+//		qsort(Lst, n, sizeof(Stu), cmpByscore);
+//		for (int i = 0; i < 3; i++)
+//		{
+//			printf("%s %d\n", Lst[i].name, Lst[i].score);
+//		}
+//		printf("\n");
+//
+//		qsort(Lst, n, sizeof(Stu), cmpByCN);
+//		for (int i = 0; i < 3; i++)
+//		{
+//			printf("%s %d\n", Lst[i].name, Lst[i].CN);
+//		}
+//		printf("\n");
+//
+//		qsort(Lst, n, sizeof(Stu), cmpByMath);
+//		for (int i = 0; i < 3; i++)
+//		{
+//			printf("%s %d\n", Lst[i].name, Lst[i].Math);
+//		}
+//		printf("\n");
+//
+//		qsort(Lst, n, sizeof(Stu), cmpByEN);
+//		for (int i = 0; i < 3; i++)
+//		{
+//			printf("%s %d\n", Lst[i].name, Lst[i].EN);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//*************************************************
+//问题 AU: 20级期末机试2-好数对（20分）
+//#include <stdio.h>
+//
+//int goodNum(int x,int y)
+//{
+//	if (x * y % (x + y) == 0) return 1;
+//	else return 0;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	
+//	while (~scanf("%d", &n))
+//	{
+//		int fix = 0;
+//		int count = 0;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = i+1; j <= n; j++)
+//			{
+//				if (goodNum(i, j)) count++;
+//			}
+//		}
+//
+//		printf("%d\n", count);
+//	}
+//	return 0;
+//}
+
+//**************************************
+//问题 AV: 20级期末机试2-过元旦（20分）
 #include <stdio.h>
+
+int is_leep(int year)
+{
+	if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) return 1;
+	else return 0;
+}
 
 int main()
 {
-	int n = 0;
-	while (~scanf("%d", &n))
+	int T = 0;
+	for (int round = 0; round < T; round++)
 	{
-
-		for (int i = 0; i < n; i++)
+		int year, month, day;
+		int sum = 1;
+		for (int i = year; i < 2021; i++)
 		{
-			for (int j = 0; j < n - 1 - i; j++) printf(" ");
-			for (int j = 0; j < i + 1; j++) printf("%c", j + 97);
-			for(int j = 0;j)
+			if (is_leep(i))
+			{
+				sum += 366;
+			}
+			else
+			{
+				sum += 365;
+			}
 		}
+
+
 	}
+
 	return 0;
 }
