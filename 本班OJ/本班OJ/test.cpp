@@ -1716,35 +1716,227 @@
 
 //**************************************
 //问题 AV: 20级期末机试2-过元旦（20分）
-#include <stdio.h>
+//#include <stdio.h>
+//
+//int is_leep(int year)
+//{
+//	if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) return 1;
+//	else return 0;
+//}
+//
+//int main()
+//{
+//	int T = 0;
+//	scanf("%d", &T);
+//	for (int round = 0; round < T; round++)
+//	{
+//		int year, month, day;
+//		scanf("%d-%d-%d", &year, &month, &day);
+//		int sum = 1;
+//
+//		int arr_month[13] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+//
+//		//先把天数推到月底
+//		if(year == 2021)
+//		{ 
+//			printf("%d\n", sum);
+//			continue;
+//		}
+//		if (month == 2 && is_leep(year)) sum += 1;
+//		sum += arr_month[month] - day +1;
+//
+//		//把天数推到年底
+//		for (int i = month + 1; i <= 12; i++)
+//		{
+//			if (i == 2 && is_leep(year)) sum += 1;
+//			sum += arr_month[i];
+//		}
+//
+//		//推年数
+//
+//		for (int i = year + 1; i < 2021; i++)
+//		{
+//			if (is_leep(i)) sum += 366;
+//			else sum += 365;
+//		}
+//
+//		
+//
+//		printf("%d\n", sum);
+//
+//	}
+//
+//	return 0;
+//}
 
-int is_leep(int year)
-{
-	if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) return 1;
-	else return 0;
-}
+//********************************************************
+//问题 AW: 20级期末机试2-奇序列（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		int arr[120] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			scanf("%d", &arr[i]);
+//		}
+//
+//		if (n % 2 == 0)
+//		{
+//			printf("No\n");
+//		}
+//		else if (arr[0] % 2 == 0 || arr[n-1] %2 == 0)
+//		{
+//			printf("No\n");
+//
+//		}
+//		else
+//		{
+//			printf("Yes\n");
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//*****************************************
+//问题 AX: 三、时光倒流【20分】
+
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int hour, min, sec, sum;
+//	while (scanf("%d %d %d %d", &hour, &min, &sec, &sum) != EOF)
+//	{
+//		sec -= sum;
+//		while (sec < 0)
+//		{
+//			sec += 60;
+//			min--;
+//		}
+//		while (min < 0)
+//		{
+//			min += 60;
+//			hour--;
+//		}
+//		while (hour < 0)
+//		{
+//			hour += 24;
+//		}
+//		printf("%02d:%02d:%02d\n", hour, min, sec);
+//	}
+//
+//	return 0;
+//}
+
+//***********************************************
+//问题 AY: 21级期中机试-最少的笔（20分
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int money = 0;
+//	while (~scanf("%d", &money))
+//	{
+//		int cnt = 0;
+//
+//		int sum = 0;
+//		while (money >= 38)
+//		{
+//			money -= 38;
+//			cnt++;
+//			sum += 38;
+//		}
+//		while (money >= 18)
+//		{
+//			money -= 18;
+//			cnt++;
+//			sum += 18;
+//		}
+//		while (money >= 8)
+//		{
+//			money -= 8;
+//			cnt++;
+//			sum += 8;
+//		}
+//
+//		if (sum > 68)
+//		{
+//			cnt++;
+//		}
+//
+//		printf("%d\n",cnt);
+//	}
+//
+//	return 0;
+//}
+
+//***************************************
+//问题 CE: 22-数据类型-1-测身高
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int h = 0;
+//	while (~scanf("%d", &h))
+//	{
+//		printf("%.1lf\n", h * 2.54);
+//	}
+//	return 0;
+//}
+
+//*******************************
+//问题 CG: 22-循环-2-找出最大数
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int num = 0;
+//	int max = 0;
+//
+//	while (~scanf("%d", &num))
+//	{
+//		if (num > max)
+//		{
+//			max = num;
+//		}
+//		if (num == 0)
+//		{
+//			printf("%d\n", max);
+//			max = 0;
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//**************************************'
+//问题 AZ: 21级期中机试-东南西北（20分）
+#include <stdio.h>
 
 int main()
 {
-	int T = 0;
-	for (int round = 0; round < T; round++)
+	int n = 0;
+	while (~scanf("%d", &n))
 	{
-		int year, month, day;
-		int sum = 1;
-		for (int i = year; i < 2021; i++)
+		getchar();
+		int sum = 0;
+		for (int i = 0; i < n; i++)
 		{
-			if (is_leep(i))
-			{
-				sum += 366;
-			}
-			else
-			{
-				sum += 365;
-			}
+
+			char c = 0;
+			scanf("%c", &c);
+			if (c == 'L') sum--;
+			else sum++;
 		}
 
-
+		char dst[] = {'N','E','S','W'};
+		while (sum < 0) sum += 4;
+		printf("%c\n", dst[sum]);
 	}
-
 	return 0;
 }
