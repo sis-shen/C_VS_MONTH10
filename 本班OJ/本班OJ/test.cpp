@@ -1916,27 +1916,324 @@
 
 //**************************************'
 //问题 AZ: 21级期中机试-东南西北（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		int sum = 0;
+//		char str[1008] = { 0 };
+//
+//		scanf("%s", str);
+//		for (int i = 0; i < n; i++)
+//		{
+//
+//
+//			if (str[i] == 'L') sum--;
+//			else sum++;
+//		}
+//
+//		char dst[] = {'N','E','S','W'};
+//		while (sum >= 4) sum -= 4;
+//		while (sum < 0) sum += 4;
+//		printf("%c\n", dst[sum]);
+//	}
+//	return 0;
+//}
+
+//**********************************************
+//问题 BA: 21级期中机试-研究病毒（20分）
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char str[1008] = { 0 };
+//	while (scanf("%s", str) != EOF)
+//	{
+//		for (int i = 0; i < strlen(str); i++)
+//		{
+//			if (str[i] == 'T')
+//			{
+//				str[i] = 'U';
+//			}
+//		}
+//
+//		printf("%s\n", str);
+//
+//		for (int i = 0; i < strlen(str); i++)
+//		{
+//			str[i] = 0;
+//		}
+//	}
+//	return 0;
+//}
+
+//***********************************************
+//问题 BB: 21级期中机试-还原数列（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	long long num = 0;
+//
+//	while (scanf("%lld", &num) != EOF)
+//	{
+//		long long cnt = 2;
+//		long long cur = 2;
+//		long long prev = 1;
+//		while (cur<num)
+//		{
+//			//迭代
+//			long long tmp = cur;
+//			cur = cur + prev;
+//			prev = tmp;
+//			cnt++;
+//		}
+//
+//		if (cur == num)
+//		{
+//			printf("%lld\n", cnt);
+//		}
+//		else
+//		{
+//			printf("0\n");
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//***************************************************
+//问题 BD: 21级期中机试-反间整数（10分）
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char num[2000] = { 0 };
+//	while (scanf("%s",num) != EOF)
+//	{
+//		int sign = 0;
+//		if (num[0] == '-') sign = 1;
+//		char reverse[2000] = { 0 };
+//		strcpy(reverse, num);
+//		char sum[2000] = { 0 };
+//
+//		int left = sign;
+//		int right = strlen(reverse) - 1;
+//		while (left < right)
+//		{
+//			char tmp = reverse[left];
+//			reverse[left] = reverse[right];
+//			reverse[right] = tmp;
+//			left++;
+//			right--;
+//		}
+//
+//		char output[2000] = { 0 };
+//		int flag = 0;
+//		for (int i = strlen(reverse)+1;i>= 2+sign;i--)
+//		{
+//			int result = num[i - 2] - 48 + reverse[i - 2] - 48 + flag;
+//			if (result >= 10)
+//			{
+//				result -= 10;
+//				flag = 1;
+//			}
+//			else flag = 0;
+//
+//			output[i] = result + 48;
+//		}
+//		if (flag)
+//		{
+//			output[1] = '1';
+//			if (sign)
+//			{
+//				output[0] = '-';
+//				printf("%s\n", output);
+//			}
+//			else
+//			{
+//				printf("%s\n", output+1);
+//			}
+//		}
+//		else
+//		{
+//			if (sign)
+//			{
+//				output[1] = '-';
+//				printf("%s\n", output + 1);
+//			}
+//			else
+//			{
+//
+//				printf("%s\n", output + 2);
+//			}
+//		}
+//		for (int i = 0; i < strlen(num); i++)
+//		{
+//			num[i] = '\0';
+//		}
+//	}
+//	return 0;
+//}
+
+//*************************************
+//问题 BF: 21级期末机试-描绘闪电（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= n+1; j++)
+//			{
+//				if (j == n +1 + 1 - i)
+//				{
+//					printf("*");
+//				}
+//				else
+//				{
+//					printf(" ");
+//				}
+//			}
+//			printf("\n");
+//		}
+//
+//
+//
+//		for (int i = 0; i < n + 1; i++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//
+//		for (int i = 0; i < n; i++)
+//		{
+//			for (int j = 1; j <= n + 1; j++)
+//			{
+//				if (j == n - i)
+//				{
+//					printf("*");
+//				}
+//				else
+//				{
+//					printf(" ");
+//				}
+//			}
+//			printf("\n");
+//		}
+//
+//		printf("\n");
+//
+//	}
+//
+//	return 0;
+//}
+
+//*******************************************
+//问题 BG: 21级期末机试-密码设置（20分）
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char str[30] = { 0 };
+//	while (scanf("%s", str) != EOF)
+//	{
+//		if (strlen(str) < 8)
+//		{
+//			printf("no\n");
+//			continue;
+//		}
+//
+//		int flag[4] = { 0 };
+//		for (int i = 0; i < strlen(str); i++)
+//		{
+//			if ('0' <= str[i] && str[i] <= '9') flag[0] = 1;
+//			if ('a' <= str[i] && str[i] <= 'z') flag[1] = 1;
+//			if ('A' <= str[i] && str[i] <= 'Z') flag[2] = 1;
+//			if (str[i] == '!' || str[i] == '@' || str[i] == '#' || str[i] == '$'
+//				|| str[i] == '*' || str[i] == '~') flag[3] = 1;
+//
+//
+//		}
+//		
+//		if (flag[0] + flag[1] + flag[2] + flag[3] >= 3)
+//		{
+//			printf("yes\n");
+//		}
+//		else
+//		{
+//			printf("no\n");
+//		}
+//
+//
+//		
+//
+//		//for (int i = 0; i < strlen(str); i++)
+//		//{
+//		//	str[i] = '\0';
+//		//}
+//	}
+//
+//	return 0;
+//}
+
+//***********************************************************
+//问题 BH: 21级期末机试-伪素数列（20分）
 #include <stdio.h>
+#include <math.h>
+
+int is_prime(int num)
+{
+	if (num <= 1) return 0;
+
+
+	for (int i = 2; i <= sqrt(num); i++)
+	{
+		if (num % i == 0)
+		{
+			return 0;
+		}
+	}
+
+	return 1;
+}
+
+int is_fake(int num)
+{
+	while (num)
+	{
+		if (is_prime(num%10) == 0) return 0;
+		num /= 10;
+	}
+	return 1;
+}
 
 int main()
 {
-	int n = 0;
-	while (~scanf("%d", &n))
+	int k = 0;
+	while (scanf("%d", &k) != EOF)
 	{
-		getchar();
-		int sum = 0;
-		for (int i = 0; i < n; i++)
-		{
+		int cur = 2;
+		int cnt = 1;
 
-			char c = 0;
-			scanf("%c", &c);
-			if (c == 'L') sum--;
-			else sum++;
+		while (cnt < k)
+		{
+			
+			cur++;
+			if (is_prime(cur) || is_fake(cur)) cnt++;
 		}
 
-		char dst[] = {'N','E','S','W'};
-		while (sum < 0) sum += 4;
-		printf("%c\n", dst[sum]);
+		printf("%d\n", cur);
 	}
+
 	return 0;
 }
