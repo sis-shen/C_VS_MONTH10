@@ -241,9 +241,10 @@
 //	int n = 0;
 //	while (~scanf("%d", &n))
 //	{
-//		for (int i = 2; i < sqrt(n); i++)
+//		for (int i = 2; i <= sqrt(n); i++)
 //		{
-//			if (n % i == 0)
+//			//已知n就两个因数，且均为质数
+//			if (n % i == 0)//先找到较小的因数
 //			{
 //				printf("%d\n", n / i);
 //				break;
@@ -1186,17 +1187,18 @@
 //		int count = 0;
 //		while (count < pos)
 //		{
+//			//拼一个足够长 的整数列
 //			num++;
-//			sprintf(str + count + 1, "%d", num);
+//			sprintf(str + count + 1, "%d", num);//第一位为0，使目标下标与pos对应
 //			int digit = 1;
 //			int copy = num;
-//			while (copy /= 10)
+//			while (copy /= 10)//计算这次加了几位数字进去
 //			{
 //				digit++;
 //			}
 //			count += digit;
 //		}
-//		printf("%d\n", str[pos]-48);
+//		printf("%c\n", str[pos]);//直接打印字符
 //	}
 //
 //	return 0;
@@ -2045,7 +2047,7 @@
 //			}
 //			else flag = 0;
 //
-//			output[i] = result + 48;
+//			output[i-sign] = result + 48;
 //		}
 //		if (flag)
 //		{
@@ -2187,53 +2189,423 @@
 //}
 
 //***********************************************************
-//问题 BH: 21级期末机试-伪素数列（20分）
-#include <stdio.h>
-#include <math.h>
+//问题 BH: 21级期末机试-伪素数列（20分）              蜜汁答案错误
+//#include <stdio.h>
+//#include <math.h>
+//
+//int is_prime(int num1)
+//{
+//	if (num1 <= 1) return 0;
+//
+//	
+//	for (int i = 2; i <= sqrt(num1); i++)
+//	{
+//		if (num1 % i == 0)
+//		{
+//			return 0;
+//		}
+//	}
+//
+//	return 1;
+//}
+//
+//int is_fake(int num)
+//{
+//	while (num)
+//	{
+//		int n = num % 10;
+//		if (n == 0 || n == 1 || n == 4 || n == 6 || n == 8 || n == 9)
+//		{
+//			return 0;
+//		}
+//		num /= 10;
+//	}
+//	
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int arr[5009] = { 0 };
+//	//储存伪素数列表
+//	int cur = 2;
+//	int cnt = 1;
+//
+//	while (cnt < 5001)
+//	{
+//		if (is_prime(cur) || is_fake(cur))
+//		{
+//			arr[cnt++] = cur++;
+//		}
+//		else
+//		{
+//			cur++;
+//		}
+//	}
+//	
+//	int k = 0;
+//
+//	while (~scanf("%d", &k) )
+//	{
+//		printf("%d\n", arr[k]);
+//	}
+//
+//	return 0;
+//}
 
-int is_prime(int num)
-{
-	if (num <= 1) return 0;
+//****************************************************
+//问题 BJ: 21级期末机试-谍影寻踪（10分）     整个链表咯
+//#include <stdio.h>
+//
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		char name[1005] = { 0 };
+//
+//	}
+//
+//
+//	return 0;
+//}
 
+//***********************************************
+//问题 BK: 21级补考-时间表示（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int sec = 0;
+//	while (~scanf("%d", &sec))
+//	{
+//		int min = 0;
+//		int hour = 0;
+//		while (sec >= 60)
+//		{
+//			sec -= 60;
+//			min++;
+//		}
+//		while (min >= 60)
+//		{
+//			min -= 60;
+//			hour++;
+//		}
+//
+//		printf("%d:%d:%d\n", hour, min, sec);
+//	}
+//
+//	return 0;
+//}
 
-	for (int i = 2; i <= sqrt(num); i++)
-	{
-		if (num % i == 0)
-		{
-			return 0;
-		}
-	}
+//**************************************
+//问题 BL: 21级补考-奇数序列（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int arr[105] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			scanf("%d", &arr[i]);
+//		}
+//
+//		if (n % 2 == 0)
+//		{
+//			printf("NO\n");
+//		}
+//		else
+//		{
+//			int sum = 0;
+//			for (int i = 0; i < n; i++)
+//			{
+//				sum += arr[i];
+//			}
+//
+//			if (sum % 2 == 0)
+//			{
+//				printf("NO\n");
+//			}
+//			else
+//			{
+//				printf("YES\n");
+//			}
+//		}
+//
+//	}
+//
+//	return 0;
+//}
 
-	return 1;
-}
+//********************************
+//问题 BM: 21级补考-加密算法（20分）
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char password[1008] = { 0 };
+//	while (~scanf("%s", password))
+//	{
+//		for (int i = strlen(password) - 1; i >= 0; i--)
+//		{
+//			printf("%c", password[i]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
 
-int is_fake(int num)
-{
-	while (num)
-	{
-		if (is_prime(num%10) == 0) return 0;
-		num /= 10;
-	}
-	return 1;
-}
+//**********************************
+//问题 BN: 21级补考-字母图形（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		for (int i = 0; i < n; i++)
+//		{
+//			for (int j = 1; j <= 2 * n - 1; j++)
+//			{
+//				if (n - i <= j && j <= n)
+//				{
+//					printf("%c", 'a' + n - j);
+//				}
+//				else if (n < j && j <= n + i)
+//				{
+//					printf("%c", 'a' + j - n);
+//				}
+//				else if(j<n-i)
+//				{
+//					printf(" ");
+//				}
+//			}
+//			printf("\n");
+//		}
+//	}
+//
+//	return 0;
+//}
 
-int main()
-{
-	int k = 0;
-	while (scanf("%d", &k) != EOF)
-	{
-		int cur = 2;
-		int cnt = 1;
+//*************************************
+//问题 BO: 21级补考-按位相加（10分）
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char a[100000];
+//	char b[100000];
+//	while (~scanf("%s %s", a, b))
+//	{
+//		if (strlen(b) >= strlen(a))
+//		{
+//
+//			int big = strlen(b) - 1;
+//			for (int i = strlen(a)-1; i >= 0; i--)//i是a的下标
+//			{
+//				int sum = b[big] - '0' + a[i] - '0';
+//				sum %= 10;
+//				b[big--] = sum + '0';
+//			}
+//
+//			int cnt = 0;
+//
+//			while (b[cnt] == '0' && cnt< strlen(b) - 1)
+//			{
+//				cnt++;
+//			}
+//
+//			printf("%s\n", b+cnt);
+//		}
+//		else
+//		{
+//			int big = strlen(a) - 1;
+//			for (int i = strlen(b) - 1; i >= 0; i--)//i是a的下标
+//			{
+//				int sum = a[big] - '0' + b[i] - '0';
+//				sum %= 10;
+//				a[big--] = sum + '0';
+//			}
+//
+//			int cnt = 0;
+//
+//			while (a[cnt] == '0' && cnt < strlen(a) - 1)
+//			{
+//				cnt++;
+//			}
+//
+//			printf("%s\n", a + cnt);
+//		}
+//	}
+//
+//
+//	return 0;
+//}
 
-		while (cnt < k)
-		{
-			
-			cur++;
-			if (is_prime(cur) || is_fake(cur)) cnt++;
-		}
+//*******************************************
+//问题 BP: 21级补考-考试测评（10分）                        看我看我！！！！题目不难！！代码量较大罢了
+//#include <stdio.h>
+//
+//int main()
+//{
+//
+//	return 0;
+//}
 
-		printf("%d\n", cur);
-	}
+//*****************************************
+//问题 BQ: 开心的小明：有趣的游戏                 时间超限
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int cmp(const void* e1, const void* e2)
+//{
+//	return *(int*)e2 - *(int*)e1;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int* arr = (int*)malloc(sizeof(int) * n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//
+//	int sum = 0;
+//	while (n > 1)
+//	{
+//		qsort(arr, n, sizeof(int), cmp);
+//		sum += arr[n - 1] + arr[n - 2];
+//		arr[n - 2] = arr[n - 1] + arr[n - 2];
+//		n--;
+//	}
+//
+//	printf("%d", sum);
+//
+//	return 0;
+//}
 
-	return 0;
-}
+//******************************************
+//问题 BR: 计算多项式（10分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a0, a1, a2, a3, a4;
+//	scanf("%d %d %d %d %d", &a0, &a1, &a2, &a3, &a4);
+//	int n = 0;
+//	scanf("%d", &n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		int sum = 0;
+//		int arr[5] = { 0 };
+//		for (int j = 0; j < 5; j++)
+//		{
+//			int x=0;
+//			scanf("%d", &x);
+//			sum += a0 + a1 * x + a2 * x * x + a3 * x * x * x + a4 * x * x * x * x;
+//		}
+//		printf("%d\n", sum);
+//	}
+//	return 0;
+//}
+
+//******************************************
+//问题 BS: 幂次计算（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int T = 0;
+//	scanf("%d", &T);
+//	for (int i = 0; i < T; i++)
+//	{
+//		long long x;
+//		double y;
+//		scanf("%lld %lf", &x,& y);
+//		if (x == 1)
+//		{
+//			printf("1\n");
+//			continue;
+//		}
+//		long long ret = 1;
+//		for (long long j = 0; j < y; j++)
+//		{
+//			ret *= x;
+//			ret /= 998244353;
+//		}
+//		printf("%lld\n", ret);
+//	}
+//	return 0;
+//}
+
+//**************************************
+//问题 BW: 22-输入输出-1-考试成绩
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int score = 0;
+//	while (~scanf("%d", &score))
+//	{
+//		if (91 <= score && score <= 100)
+//		{
+//			printf("A\n");
+//		}
+//		else if (81 <= score)
+//		{
+//			printf("B\n");
+//		}
+//		else if (score >= 71)
+//		{
+//			printf("C\n");
+//		}
+//		else if (score >= 60)
+//		{
+//			printf("D\n");
+//		}
+//		else
+//		{
+//			printf("F\n");
+//		}
+//	}
+//	return 0;
+//}
+
+//*********************************
+//问题 BX: 22-循环-2-混合和
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int m, n;
+//	while (~scanf("%d %d", &m, & n))
+//	{
+//		long long sum1 = 0;
+//		long long sum2 = 0;
+//		for (int i = m; i <= n; i++)
+//		{
+//			if (i % 2 == 0)
+//			{
+//				sum2 += i * i * i;
+//			}
+//			else
+//			{
+//				sum1 += i * i;
+//			}
+//		}
+//		printf("%lld %lld\n", sum1, sum2);
+//	}
+//
+//	return 0;
+//}
+
+//****************************************
