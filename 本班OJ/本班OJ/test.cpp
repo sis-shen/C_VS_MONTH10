@@ -2609,3 +2609,476 @@
 //}
 
 //****************************************
+//问题 BY: 22-输入输出-1-打印
+//#include <stdio.h>
+//
+//int main()
+//{
+//	double num = 0;
+//	while (~scanf("%lf", &num))
+//	{
+//		printf("%-8.3lf %6.0lf\n", num, num);
+//	}
+//
+//	return 0;
+//}
+
+//*************************************
+//问题 BZ: 22-输入输出-2-保留余数的除法
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a, b;
+//	while (~scanf("%d %d", &a, &b))
+//	{
+//		printf("%d %d\n", a / b, a % b);
+//	}
+//
+//	return 0;
+//}
+
+//***********************************
+//问题 CA: 22-选择结构-2-最大数
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int max = 0;
+//	while (~scanf("%d", &max))
+//	{
+//		int num = 0;
+//		scanf("%d", &num);
+//		max = num > max ? num : max;
+//		scanf("%d", &num);
+//		max = num > max ? num : max;
+//
+//		printf("%d\n", max);
+//
+//	}
+//
+//	return 0;
+//}
+
+//************************************
+//问题 CB: 22-选择结构-2-三角形
+//#include <stdio.h>
+//
+//int main() {
+//    int a, b, c;
+//    while (scanf("%d %d %d", &a, &b, &c) != EOF) { 
+//        if ((a + b > c) && (a + c > b) && (b + c > a))
+//        {
+//            printf("yes\n");
+//        }
+//        else
+//        {
+//            printf("no\n");
+//        }
+//    }
+//    return 0;
+//}
+
+//*****************************
+//问题 CC: 22-输入输出-3-可能的最晚时间
+//#include <stdio.h>
+//
+//int main()
+//{
+//	char time[10] = { 0 };
+//	while (~scanf("%s", time))
+//	{
+//		//处理小时
+//		if (time[0] == '?')
+//		{
+//			if (time[1] == '?')
+//			{
+//				time[0] = '2';
+//				time[1] = '3';
+//			}
+//			else if (time[1] <= '3')
+//			{
+//				time[0] = '2';
+//			}
+//			else
+//			{
+//				time[0] = '1';
+//			}
+//		}
+//		else if (time[1] == '?')
+//		{
+//			if (time[0] == '2')
+//			{
+//				time[1] = '3';
+//			}
+//			else
+//			{
+//				time[1] = '9';
+//			}
+//		}
+//
+//		//分
+//		if (time[3] == '?')
+//		{
+//			time[3] = '5';
+//		}
+//		if (time[4] == '?')
+//		{
+//			time[4] = '9';
+//		}
+//
+//		printf("%s\n", time);
+//	}
+//
+//	return 0;
+//}
+
+//***********************************************************
+//问题 CD: 22-输入输出-3-7出现的次数
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int L, R;
+//	while (~scanf("%d %d", &L, &R))
+//	{
+//		int cnt = 0;
+//		for (int i = L; i <= R; i++)
+//		{
+//			int copy = i;
+//			while (copy)
+//			{
+//				if (copy % 10 == 7)
+//				{
+//					cnt++;
+//				}
+//				copy /= 10;
+//			}
+//		}
+//		printf("%d\n", cnt);
+//	}
+//
+//	return 0;
+//}
+
+//*********************************
+//问题 CF: 22-数据类型-2-体积测量
+//#include <stdio.h>
+//
+//int main()
+//{
+//	double bei = 0;
+//	while (~scanf("%lf", &bei))
+//	{
+//		printf("%.3lf\n", bei / 2.0);
+//		printf("%.3lf\n", bei *4.0);
+//		printf("%.3lf\n", bei * 8.0);
+//		printf("%.3lf\n", bei *24.0);
+//
+//
+//	}
+//	return 0;
+//}
+
+//**********************************
+//问题 CH: 22-循环-1-偶数平方值
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	for (int i = 2; i * i <= n; i += 2)
+//	{
+//		printf("%d\n", i * i);
+//	}
+//	return 0;
+//}
+
+//*************************************
+//问题 CI: 22-循环-1-自然数e的近似计算
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	int deno = 1;
+//	double sum = 1;
+//	scanf("%d", &n);
+//	for (int i = 1; i <= n; i++)
+//	{
+//		deno *= i;
+//		sum += 1.0 / deno;
+//	}
+//
+//	printf("%lf\n", sum);
+//	return 0;
+//}
+
+//**********************************
+//问题 CJ: 22-循环-1-输入输出练习2
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		int a, b;
+//		scanf("%d %d", &a, &b);
+//		printf("%d\n", a + b);
+//	}
+//
+//	return 0;
+//}
+
+//*************************************
+//问题 CK: 22-循环-1-输入输出练习3
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while(1)
+//	{
+//		int a, b;
+//		scanf("%d %d", &a, &b);
+//		if (a + b == 0) break;
+//		printf("%d\n", a + b);
+//	}
+//
+//	return 0;
+//}
+
+//*************************************
+//问题 CL: 22-循环-1-输入输出练习4
+//#include <stdio.h>
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int n = 0;
+//		scanf("%d", &n);
+//		if (n == 0) break;
+//
+//		int sum = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			int num = 0;
+//			scanf("%d", &num);
+//			sum += num;
+//		}
+//		printf("%d\n", sum);
+//	}
+//
+//
+//	return 0;
+//}
+
+//*****************************************
+//问题 CM: 22-循环-1-输入输出练习5
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int T = 0;
+//	scanf("%d", &T);
+//	for(int round = 0;round<T;round++)
+//	{
+//		int n = 0;
+//		scanf("%d", &n);
+//
+//		int sum = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			int num = 0;
+//			scanf("%d", &num);
+//			sum += num;
+//		}
+//		printf("%d\n\n", sum);
+//	}
+//
+//
+//	return 0;
+//}
+
+//***********************
+//问题 CO: 卡牌排序（20分）
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int cmp(const void* e1, const void* e2)
+//{
+//	return *(int*)e1 - *(int*)e2;
+//}
+//
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int odd[10000] = { 0 };
+//		int even[10000] = { 0 };
+//
+//		int curO = 0;
+//		int curE = 0;
+//
+//		for (int i = 0; i < n; i++)
+//		{
+//			int num = 0;
+//			scanf("%d", &num);
+//			if (num % 2 == 0)
+//			{
+//				even[curE] = num;
+//				curE++;
+//			}
+//			else
+//			{
+//				odd[curO] = num;
+//				curO++;
+//			}
+//		}
+//
+//		if (curE > 0) qsort(even, curE + 1, sizeof(int), cmp);
+//		if (curO > 0) qsort(odd, curO + 1, sizeof(int), cmp);
+//
+//		for (int i = 1; i <= curO; i++)
+//		{
+//			printf("%d ", odd[i]);
+//		}
+//		printf("\n");
+//		for (int i = 1; i <= curE; i++)
+//		{
+//			printf("%d ", even[i]);
+//		}
+//		printf("\n\n");
+//	}
+//
+//	return 0;
+//}
+
+//**************************************
+//问题 CQ: 时钟加法（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int h, m, s, n;
+//	while (~scanf("%d:%d:%d+%d", &h, &m, &s, &n))
+//	{
+//		s += n;
+//		while (s >= 60)
+//		{
+//			s -= 60;
+//			m++;
+//		}
+//		while (m >= 60)
+//		{
+//			m -= 60;
+//			h++;
+//		}
+//		h %= 24;
+//
+//		printf("%02d:%02d:%02d\n",h, m, s);
+//	}
+//
+//	return 0;
+//}
+
+//**********************
+//问题 CU: 判断IP地址（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int a, b, c, d;
+//	while (~scanf("%d.%d.%d.%d", &a, &b, &c, &d))
+//	{
+//		if (a >= 0 && b >= 0 && c >= 0 && d >= 0 && a <= 255 && b <= 255 && c <= 255 && d <= 255)
+//		{
+//			printf("Yes\n");
+//
+//		}
+//		else
+//		{
+//			printf("No\n");
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//***************************************************
+//问题 M: 22-基础-1-时间相加
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int h1, m1, s1, h2, m2, s2;
+//	while (~scanf("%d %d %d %d %d %d ", &h1, &m1, &s1, &h2, &m2, &s2))
+//	{
+//		int H = h1 + h2;
+//		int M = m1 + m2;
+//		int S = s1 + s2;
+//		while (S >= 60)
+//		{
+//			S -= 60;
+//			M++;
+//		}
+//		while (M >= 60)
+//		{
+//			M -= 60;
+//			H++;
+//		}
+//		printf("%d %d %d\n", H, M, S);
+//	}
+//	return 0;
+//}
+
+//**************************
+//问题 CW: 打印幸运树（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		//打印树顶
+//		for (int i = 1; i <= n + 1; i++)
+//		{
+//			for (int j = 1; j <= 2 * n + 1;j++)
+//			{
+//				if ( j < n + 1 + 1 - i)
+//				{
+//					printf(" ");
+//				}
+//				else if (n + 1 + 1 - i <= j && j <= n + 1 + i - 1)
+//				{
+//					printf("*");
+//				}
+//			}
+//			printf("\n");
+//		}
+//
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= n + 1; j++)
+//			{
+//				if (j == n + 1)
+//				{
+//					printf("*\n");
+//				}
+//				else
+//				{
+//					printf(" ");
+//				}
+//			}
+//		}
+//	}
+//
+//	return 0;
+//}
