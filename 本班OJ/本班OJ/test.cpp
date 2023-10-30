@@ -611,11 +611,8 @@
 //	while (num)
 //	{
 //		int ret = 0;
-//		if (num == 1)
-//		{
-//			printf("0\n");
-//		}
-//		while ((pow(3, ret) - 1) /2 < num)
+//
+//		while (pow(3, ret) < num)
 //		{
 //			ret++;
 //		}
@@ -1103,43 +1100,43 @@
 
 //***********************************************************
 //问题 AI: 浩南有选择困难症（20分）
-//#include <stdio.h>
-//
-//int main()
-//{
-//	int n = 0;
-//	while (scanf("%d", &n) != EOF)
-//	{
-//		int city = 1;
-//		int cost = 0;
-//		int flag = 1;
-//
-//		scanf("%d", &cost);//获取第一个城市
-//
-//		int min = cost;
-//
-//		for (int i = 2; i <= n; i++)
-//		{
-//			scanf("%d", &cost);
-//			if (min == cost)
-//			{
-//				flag = 0;
-//			}
-//			else if (cost < min)
-//			{
-//				flag = 1;
-//				min = cost;
-//				city = i;
-//			}
-//		}
-//
-//		if (flag) printf("%d\n", city);
-//		else printf("Fail\n");
-//		
-//
-//	}
-//	return 0;
-//}
+#include <stdio.h>
+
+int main()
+{
+	int n = 0;
+	while (scanf("%d", &n) != EOF)
+	{
+		int city = 1;
+		int cost = 0;
+		int flag = 1;
+
+		scanf("%d", &cost);//获取第一个城市
+
+		int min = cost;
+
+		for (int i = 2; i <= n; i++)
+		{
+			scanf("%d", &cost);
+			if (min == cost)
+			{
+				flag = 0;
+			}
+			else if (cost < min)
+			{
+				flag = 1;
+				min = cost;
+				city = i;
+			}
+		}
+
+		if (flag) printf("%d\n", city);
+		else printf("Fail\n");
+		
+
+	}
+	return 0;
+}
 
 //************************************
 //问题 AJ: 矩阵转置（20分）
@@ -1509,12 +1506,12 @@
 //问题 AS: 20级期末机试2-素数串（10分）
 //#include <stdio.h>
 //#include <string.h>
-//#include <math.h>
 //
-//int is_prime(int x)
+//int isprime(int x)
 //{
-//	if ( x == 1) return 0;
+//	if (x == 1) return 0;
 //	if (x == 2) return 1;
+//
 //	for (int i = 2; i < x; i++)
 //	{
 //		if (x % i == 0) return 0;
@@ -1524,33 +1521,46 @@
 //
 //int main()
 //{
-//	char str[1005];
-//	while (~scanf("%s", str))
+//	char str[10000] = { 0 };
+//	while (scanf("%s", str)!= EOF)
 //	{
-//		int last = 0;
 //		int sz = strlen(str);
 //		int flag = 0;
 //
-//		for (int i = 0; i < strlen(str)/3*3 ; i+=3)
+//		//修正
+//		if ((sz == 1 && str[0] == '0') || str[0] == '-')
 //		{
-//			int num = (str[i] - 48) * 100 + (str[i + 1] - 48) * 10 + str[i + 2] - 48;
-//			if (!is_prime(num))
+//			printf("NO\n");
+//			break;
+//		}
+//		//修正
+//
+//		for (int i = 0; i < (strlen(str) / 3) * 3; i += 3)
+//		{
+//			int num = (str[i] - '0') * 100 + (str[i + 1] - '0') * 10 + str[i + 2] - '0';
+//			if (!isprime(num))
 //			{
 //				flag = 1;
 //				break;
 //			}
 //		}
 //
-//		for (int i = strlen(str) / 3 * 3; i < strlen(str); i++)
+//		int last = 0;
+//
+//		for (int i = (strlen(str) / 3) * 3; i < strlen(str); i++)
 //		{
-//			last = last * 10 + str[i] - 48;
+//			last = last * 10 + (str[i] - '0');
 //		}
-//		if (flag || !is_prime(last))
+//
+//		if (flag || (!isprime(last)))
 //		{
 //			printf("NO\n");
-//			continue;
 //		}
-//		else printf("YES\n");
+//		else
+//		{
+//			printf("YES\n");
+//		}
+//
 //	}
 //	return 0;
 //}
@@ -2450,12 +2460,85 @@
 //}
 
 //*******************************************
-//问题 BP: 21级补考-考试测评（10分）                        看我看我！！！！题目不难！！代码量较大罢了
+//问题 BP: 21级补考-考试测评（10分）                       
 //#include <stdio.h>
+//#include <stdlib.h>
+//
+//
+//typedef struct Stu
+//{
+//	int num;
+//	int score;
+//	int math;
+//	int eng;
+//	int C;
+//}Stu;
+//
+//int cmp(const void* e1, const void* e2)
+//{
+//	Stu* E1 = (Stu*)e1;
+//	Stu* E2 = (Stu*)e2;
+//	if (E1->score != E2->score)
+//	{
+//		return E2->score - E1->score;
+//	}
+//	else
+//	{
+//		return E1->num - E2->num;
+//	}
+//}
 //
 //int main()
 //{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		Stu lst[1000] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			scanf("%d %d %d %d",&lst[i].num, &lst[i].math, &lst[i].eng, &lst[i].C);
+//			lst[i].score = lst[i].math + lst[i].eng + lst[i].C;
+//		}
 //
+//		qsort(lst, n, sizeof(Stu), cmp);
+//
+//		//输出最好
+//		printf("BEST\n");
+//
+//		for (int i = 0; i < n - 1; i++)
+//		{
+//			printf("%d %d %d %d %d\n", lst[i].num, lst[i].score, lst[i].math, lst[i].eng, lst[i].C);
+//
+//			if (lst[i].score != lst[i + 1].score)
+//			{
+//				break;
+//			}
+//		}
+//		if (n == 1)
+//		{
+//			printf("%d %d %d %d %d\n", lst[0].num, lst[0].score, lst[0].math, lst[0].eng, lst[0].C);
+//		}
+//
+//		//输出最差
+//
+//		printf("WORST\n");
+//		for (int i = n-1; i >=1; i--)
+//		{
+//			printf("%d %d %d %d %d\n", lst[i].num, lst[i].score, lst[i].math, lst[i].eng, lst[i].C);
+//
+//			if (lst[i].score != lst[i - 1].score)
+//			{
+//				break;
+//			}
+//		}
+//
+//		if (n == 1)
+//		{
+//			printf("%d %d %d %d %d\n", lst[0].num, lst[0].score, lst[0].math, lst[0].eng, lst[0].C);
+//		}
+//
+//		printf("\n");
+//	}
 //	return 0;
 //}
 
@@ -2529,18 +2612,26 @@
 //	for (int i = 0; i < T; i++)
 //	{
 //		long long x;
-//		double y;
-//		scanf("%lld %lf", &x,& y);
+//		int y;
+//		
+//		scanf("%lld %d", &x,& y);
 //		if (x == 1)
 //		{
 //			printf("1\n");
 //			continue;
 //		}
+//
+//
 //		long long ret = 1;
-//		for (long long j = 0; j < y; j++)
+//		while (y)
 //		{
-//			ret *= x;
-//			ret /= 998244353;
+//			if (y % 2 == 1)
+//			{
+//				ret = ret * x % 998244353;
+//			}
+//
+//			y /= 2;
+//			x = x * x % 998244353;
 //		}
 //		printf("%lld\n", ret);
 //	}
@@ -3078,6 +3169,79 @@
 //				}
 //			}
 //		}
+//	}
+//
+//	return 0;
+//}
+
+//*******************************************
+//问题 CR: 地铁出行（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		double sum = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			double cost = 0;
+//			scanf("%lf", &cost);
+//			if (sum < 10 || sum >= 40)
+//			{
+//				sum += cost;
+//			}
+//			else if (10 <= sum && sum < 15)
+//			{
+//				sum += cost * 0.8;
+//			}
+//			else if (15 <= sum&&sum < 40)
+//			{
+//				sum += cost * 0.5;
+//			}
+//		}
+//
+//		if (sum >= 100)
+//		{
+//			printf("Yes\n");
+//		}
+//		else
+//		{
+//			printf("No\n");
+//		}
+//	}
+//
+//
+//	return 0;
+//}
+
+//-****************************
+//问题 L: 22-循环-1-整钞换零
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int money = 0;
+//	while (scanf("%d", &money) != EOF)
+//	{
+//		int cnt = 0;
+//		for (int m5 = 1; m5 <= 20; m5++)
+//		{
+//			for (int m2 = 1; m2 <= 50; m2++)
+//			{
+//				for (int m1 = 1; m1 <= 100; m1++)
+//				{
+//					if (m5 * 5 + m2 * 2 + m1 == money)
+//					{
+//						cnt++;
+//					}
+//				}
+//			}
+//		}
+//
+//		printf("%d\n", cnt);
+//
 //	}
 //
 //	return 0;
