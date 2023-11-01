@@ -216,7 +216,7 @@
 //	while (scanf("%lld", &num) != EOF)
 //	{
 //
-//		long long ret = 0;
+//		long long ret = 0; 
 //		if (num > 1)
 //		{
 //			ret = num * 2 - 1;
@@ -1100,43 +1100,43 @@
 
 //***********************************************************
 //问题 AI: 浩南有选择困难症（20分）
-#include <stdio.h>
-
-int main()
-{
-	int n = 0;
-	while (scanf("%d", &n) != EOF)
-	{
-		int city = 1;
-		int cost = 0;
-		int flag = 1;
-
-		scanf("%d", &cost);//获取第一个城市
-
-		int min = cost;
-
-		for (int i = 2; i <= n; i++)
-		{
-			scanf("%d", &cost);
-			if (min == cost)
-			{
-				flag = 0;
-			}
-			else if (cost < min)
-			{
-				flag = 1;
-				min = cost;
-				city = i;
-			}
-		}
-
-		if (flag) printf("%d\n", city);
-		else printf("Fail\n");
-		
-
-	}
-	return 0;
-}
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int city = 1;
+//		int cost = 0;
+//		int flag = 1;
+//
+//		scanf("%d", &cost);//获取第一个城市
+//
+//		int min = cost;
+//
+//		for (int i = 2; i <= n; i++)
+//		{
+//			scanf("%d", &cost);
+//			if (min == cost)
+//			{
+//				flag = 0;
+//			}
+//			else if (cost < min)
+//			{
+//				flag = 1;
+//				min = cost;
+//				city = i;
+//			}
+//		}
+//
+//		if (flag) printf("%d\n", city);
+//		else printf("Fail\n");
+//		
+//
+//	}
+//	return 0;
+//}
 
 //************************************
 //问题 AJ: 矩阵转置（20分）
@@ -1564,6 +1564,80 @@ int main()
 //	}
 //	return 0;
 //}
+
+//-------ver.2----------
+//#include <stdio.h>
+//#include <string.h>
+//
+//int isprime(int x)
+//{
+//	if (x == 1) return 0;
+//	if (x == 2) return 1;
+//
+//	for (int i = 2; i < x; i++)
+//	{
+//		if (x % i == 0) return 0;
+//	}
+//	return 1;
+//}
+//
+//int check(char* str,int sz,int prime_arr[])
+//{
+//	int cur = 0;
+//
+//
+//	for (cur = 0; cur + 3 < sz; cur += 3)
+//	{
+//		int num = 0;
+//		for (int j = 0; j < 3; j++)
+//		{
+//			num = num * 10 + str[cur + j] - '0';
+//		}
+//		if (prime_arr[num] == 0 || num == 0)
+//		{
+//			return 0;
+//		}
+//	}
+//	int num = 0;
+//
+//	for (; cur < sz; cur++)
+//	{
+//		num = num * 10 + str[cur] - '0';
+//	}
+//	if (prime_arr[num] == 0) return 0;
+//
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int prime_arr[1008] = { 0 };
+//	for (int i = 2; i < 1000; i++)
+//	{
+//		if (isprime(i))
+//		{
+//			prime_arr[i] = 1;
+//		}
+//	}
+//	char str[1005] = { 0 };
+//	while (~scanf("%s", str))
+//	{
+//		int sz = strlen(str);
+//
+//		if (check(str,sz,prime_arr))
+//		{
+//			printf("YES\n");
+//		}
+//		else
+//		{
+//			printf("NO\n");
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
 
 //**********************************************
 //问题 AT: 20级期末机试2-光荣榜（10分）
@@ -2004,6 +2078,43 @@ int main()
 //			prev = tmp;
 //			cnt++;
 //		}
+//
+//		if (cur == num)
+//		{
+//			printf("%lld\n", cnt);
+//		}
+//		else
+//		{
+//			printf("0\n");
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//---------
+//#include <stdio.h>
+//
+//int main()
+//{
+//	long long num = 0;
+//	long long cnt = 2;
+//	long long cur = 2;
+//	long long prev = 1;
+//	long long arr[94] = { 0 };
+//	while (cnt <= 92)
+//	{
+//		arr[cnt] = cur;
+//		long long tmp = cur;
+//		cur = cur + prev;
+//		prev = tmp;
+//		cnt++;
+//	}
+//
+//	while (scanf("%lld", &num) != EOF)
+//	{
+//
+//
 //
 //		if (cur == num)
 //		{
@@ -3244,5 +3355,306 @@ int main()
 //
 //	}
 //
+//	return 0;
+//}
+
+//*********************************************
+//问题 AO: 20级期末机试1-分数加减（20分）
+//#include <stdio.h>
+//
+//
+//int main()
+//{
+//	int a, b, c, d;
+//	char method;
+//	while (~scanf("%d/%d%c%d/%d", &a, &b,&method, &c, &d))
+//	{
+//		int new_member = 0;
+//		//相加
+//		int new_deno = b * d;
+//		if (method == '+')
+//		{
+//			new_member = a * d + c * b;
+//		}
+//		else
+//		{
+//			new_member = a * d - c * b;
+//		}
+//
+//		//化简
+//		if (new_member % new_deno == 0)
+//		{
+//			printf("%d\n", new_member / new_deno);
+//			continue;
+//		}
+//		else
+//		{
+//			//寻找最大公约数
+//			int common = 1;
+//			int copy = new_member < 0 ? -new_member : new_member;
+//			for (int i = 1; i <= (new_deno < copy ? new_deno : copy); i++)
+//			{
+//				if (new_deno % i == 0 && new_member % i == 0)
+//				{
+//					common = i;
+//				}
+//			}
+//
+//			new_member /= common;
+//			new_deno /= common;
+//
+//			int num = 0;
+//
+//			if (new_member > 0)
+//			{
+//				if (new_member / new_deno == 0)
+//				{
+//					printf("%d/%d\n", new_member, new_deno);
+//				}
+//				else
+//				{
+//					while (new_member / new_deno)
+//					{
+//						num++;
+//						new_member -= new_deno;
+//						
+//					}
+//					printf("%d+%d/%d\n", num, new_member, new_deno);
+//				}
+//			}
+//			else
+//			{
+//				if (new_member / new_deno == 0)
+//				{
+//					printf("%d/%d\n", new_member, new_deno);
+//				}
+//				else
+//				{
+//					while (new_member < 0)
+//					{
+//						num--;
+//						new_member += new_deno;
+//					}
+//					printf("%d+%d/%d\n", num, new_member, new_deno);
+//
+//				}
+//			}
+//		}
+//	}
+//
+//
+//	return 0;
+//}
+
+//*************************************************************************
+//问题 BT: 最大公约数三角形（20分）
+//#include <stdio.h>
+//
+//int gcd(int x, int y)
+//{
+//	int c = x % y;
+//	if (c != 0)
+//	{
+//		x = y;
+//		y = c;
+//	}
+//	else
+//	{
+//		return y;
+//	}
+//
+//
+//}
+//
+//int main()
+//{
+//	int T = 0;
+//	scanf("%d", &T);
+//	for (int t = 0; t < T; t++)
+//	{
+//		int x, y;
+//		scanf("%d %d", &x, &y);
+//		
+//	}
+//
+//
+//	return 0;
+//}
+
+//****************************************
+////问题 BE: 21级期末机试-格式转换（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int h, p, m, d, y;
+//	while (~scanf("%d:%d,%d/%d/%d", &h, &p, &m, &d, &y))
+//	{
+//		if (h >= 12)
+//		{
+//			printf("%d%02d%02d,%02d:%02dPM\n", y, m, d, h - 12, p);
+//		}
+//		else
+//		{
+//			printf("%d%02d%02d,%02d:%02dAM\n", y, m, d, h, p);
+//
+//		}
+//	}
+//	return 0;
+//}
+//**************************************************
+//问题 BC: 21级期中机试-打印图形（10分）
+//#include <stdio.h>
+//#include <math.h>
+//
+//int is_prime(long x)
+//{
+//	for (int i = 2; i <= sqrt(x); i++)
+//	{
+//		if (x % i == 0) return 0;
+//	}
+//
+//	return 1;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	long prime_arr[450] = { 0 };
+//	int cnt = 0;
+//	int num = 2;
+//	while (cnt < 450)
+//	{
+//		if (is_prime(num))
+//		{
+//			prime_arr[cnt] = num;
+//			num++;
+//			cnt++;
+//		}
+//		else
+//		{
+//			num++;
+//		}
+//	}
+//
+//	while (~scanf("%d", &n))
+//	{
+//		int board[30][30];
+//		if (n == 1) printf("1\n\n");
+//		else if (n == 2) printf("1 2\n1 1\n\n");
+//		else
+//		{
+//			int cntPrime = 0;
+//			for (int i = 0; i < n; i++)
+//			{
+//				for (int j = 0; j < n; j++)
+//				{
+//					if (j <= i)
+//					{
+//						if (j == 0 || j == i)
+//						{
+//							board[i][j] = 1;
+//						}
+//						else
+//						{
+//							board[i][j] = board[i - 1][j] + board[i - 1][j - 1];
+//						}
+//					}
+//					else
+//					{
+//						board[i][j] = prime_arr[cntPrime];
+//						cntPrime++;
+//					}
+//				}
+//			
+//			}
+//
+//			for (int i = 0; i < n; i++)
+//			{
+//				for (int j = 0; j < n; j++)
+//				{
+//					printf("%d ", board[i][j]);
+//				}
+//				printf("\n");
+//			}
+//
+//			printf("\n");
+//
+//		}
+//
+//	}
+//
+//
+//	return 0;
+//}
+
+//*************************************
+//问题 AA: 22-循环-2-勾股数
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int x, y;
+//	while (~scanf("%d %d", &x, &y))
+//	{
+//		int ret = 1;
+//		int flag = 0;
+//		for (ret = 1; ret * ret <= x * x + y * y; ret++)
+//		{
+//			if (ret * ret + x * x == y * y || ret * ret + y * y == x * x || x * x + y * y == ret * ret)
+//			{
+//				flag = 1;
+//				break;
+//			}
+//		}
+//
+//		if (flag)
+//		{
+//			printf("%d\n", ret);
+//		}
+//		else
+//		{
+//			printf("None\n");
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//*********************************************
+//问题 CP: 小南找书（20分）
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int sz = 0;
+//	while (~scanf("%d", &sz))
+//	{
+//		int arr[1005] = { 0 };
+//		for (int i = 0; i < sz; i++)
+//		{
+//			scanf("%d", &arr[i]);
+//		}
+//		int m = 0;
+//		int code;
+//		scanf("%d", &m);
+//		for (int i = 0; i < m; i++)
+//		{
+//			scanf("%d", &code);
+//			int sum = 0;
+//			for (int j = 0; j < sz; j++)
+//			{
+//				sum += arr[j];
+//				if (sum >= code)
+//				{
+//					printf("%d\n", j+1);
+//					break;
+//				}
+//			}
+//		}
+//
+//		
+//
+//	}
 //	return 0;
 //}
