@@ -152,21 +152,7 @@
 //		for (int tmp = num; tmp > 0; tmp--)
 //		{
 //			int copy = tmp;
-//			if (tmp % 10 == 0)
-//			{
-//				while (1)//统计并消除0
-//				{
-//					if (copy % 10 != 0)
-//					{
-//						break;
-//					}
-//					else
-//					{
-//						count10++;
-//					}
-//					copy /= 10;
-//				}
-//			}
+//
 //
 //			if (copy % 5 == 0)
 //			{
