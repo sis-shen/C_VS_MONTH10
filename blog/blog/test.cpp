@@ -117,10 +117,10 @@
 
 int main()
 {
-	char arr[100];
-	scanf("%s", arr);
-	int n = strlen(arr);
-	printf("1");
-
+	char str[100] = { 0 };
+	scanf("%s", str);
+	
+	int x = 0;
+	scanf("%c", &x);
 	return 0;
 }

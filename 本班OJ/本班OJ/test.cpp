@@ -1239,51 +1239,51 @@
 
 //****************************************************
 //问题 AM: 20级期末机试1-幸运数（20分）
-//#include <stdio.h>
-//
-//int isLucky(int x)
-//{
-//	if (x % 6 == 0) return 1;
-//
-//	int num = 0;
-//	int count = 1;
-//	while (count <= 3)
-//	{
-//		num = x % 10;
-//		if (num == 6) return 1;
-//		else
-//		{
-//			x /= 10;
-//			count++;
-//		}
-//	}
-//	return 0;
-//}
-//
-//int main()
-//{
-//	int n = 0;
-//	while (scanf("%d", &n) != EOF)
-//	{
-//		int cnt = 0;
-//		int number = 1;
-//		while (1)
-//		{
-//			if (isLucky(number))
-//			{
-//				cnt++;
-//			}
-//			if (cnt == n)
-//			{
-//				printf("%d\n", number);
-//				break;
-//			}
-//
-//			number++;
-//		}
-//	}
-//	return 0;
-//}
+#include <stdio.h>
+
+int isLucky(int x)
+{
+	if (x % 6 == 0) return 1;
+
+	int num = 0;
+	int count = 1;
+	while (count <= 3)
+	{
+		num = x % 10;
+		if (num == 6) return 1;
+		else
+		{
+			x /= 10;
+			count++;
+		}
+	}
+	return 0;
+}
+
+int main()
+{
+	int n = 0;
+	while (scanf("%d", &n) != EOF)
+	{
+		int cnt = 0;
+		int number = 1;
+		while (1)
+		{
+			if (isLucky(number))
+			{
+				cnt++;
+			}
+			if (cnt == n)
+			{
+				printf("%d\n", number);
+				break;
+			}
+
+			number++;
+		}
+	}
+	return 0;
+}
 
 //**************************************
 ////问题 AN: 20级期末机试1-回文串（20分）
