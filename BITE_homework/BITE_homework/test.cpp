@@ -325,20 +325,270 @@
 //}
 
 //***************
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int sum = 0;
+//	int add = n;
+//	for (int i = 0; i < 5; i++)
+//
+//	{
+//		sum += add;
+//		add = add * 10 + n;
+//	}
+//	printf("%d", sum);
+//	return 0;
+//}
+//********************************
+//#include <stdio.h>
+//
+//int function(int n)
+//{
+//	if (n <= 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return function(n - 1) + function(n - 2);
+//	}
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		scanf("%d", &num);
+//		printf("输出:%d\n", function(num));
+//	}
+//
+//	return 0;
+//}
+
+////迭代
+//#include <stdio.h>
+//
+//int function2(int n)
+//{
+//	int prev = 1;
+//	int cur = 1;
+//
+//	for (int i = 3; i <= n; i++)
+//	{
+//		int tmp = cur;
+//		cur =  prev + cur;
+//		prev = tmp;
+//	}
+//	return cur;
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		scanf("%d", &num);
+//		printf("输出:%d\n", function2(num));
+//	}
+//
+//	return 0;
+//}
+
+//**************************
+//#include <stdio.h>
+//int function(int n,int k)
+//{
+//	if (k == 1)
+//	{
+//		return n;
+//	}
+//	else if (k == 0) return 1;
+//	else
+//	{
+//		return n * function(n,k - 1);
+//	}
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		int k = 0;
+//		scanf("%d %d", &num,&k);
+//		printf("输出:%d\n", function(num,k));
+//	}
+//
+//	return 0;
+//}
+
+//****************************
+//#include <stdio.h>
+//int function(int n)
+//{
+//	if (n <= 9)
+//	{
+//		return n;
+//	}
+//	else
+//	{
+//		return n % 10 + function(n / 10);
+//	}
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		int k = 0;
+//		scanf("%d", &num);
+//		printf("输出:%d\n", function(num));
+//	}
+//
+//	return 0;
+//}
+
+//****************************************
+//#include <stdio.h>
+//int function(int n)
+//{
+//	if (n == 1)
+//	{
+//		return n;
+//	}
+//	else
+//	{
+//		return n * function(n - 1);
+//	}
+//
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		int k = 0;
+//		scanf("%d", &num);
+//		printf("输出:%d\n", function(num));
+//	}
+//
+//	return 0;
+//}
+
+//**************************
+//#include <stdio.h>
+//int function(int n)
+//{
+//	int sum = 1;
+//	while (n >= 1)
+//	{
+//		sum *= n;
+//		n--;
+//	}
+//	return sum;
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		int k = 0;
+//		scanf("%d", &num);
+//		printf("输出:%d\n", function(num));
+//	}
+//
+//	return 0;
+//}
+//************************
+//#include <stdio.h>
+//int function(int n)
+//{
+//	if (n <= 9)
+//	{
+//		printf("%d\n", n);
+//		return n;
+//	}
+//	else
+//	{
+//		printf("%d\n", n % 10);
+//		return function(n / 10);
+//	}
+//}
+//
+//int main()
+//{
+//	while (1)
+//	{
+//		int num = 0;
+//		int k = 0;
+//		scanf("%d", &num);
+//		printf("输出:%d\n", function(num));
+//	}
+//
+//	return 0;
+//}
+
+//******************
+//#include <stdio.h>
+//int main()
+//{
+//	int a = 1;
+//	int b = 2;
+//
+//	a = a + b;
+//	b = a - b;
+//	a = a - b;
+//	printf("a = %d,b = %d\n", a, b);
+//	a = a ^ b;
+//	b = a ^ b;
+//	a = a ^ b;
+//	printf("a = %d,b = %d\n", a, b);
+//
+//	return 0;
+//}
+
 #include <stdio.h>
 
 int main()
 {
-	int n = 0;
-	scanf("%d", &n);
-	int sum = 0;
-	int add = n;
-	for (int i = 0; i < 5; i++)
+	char odd[17] = { 0 };
+	char even[17] = { 0 };
 
+	int n = 0;
+	while (1)
 	{
-		sum += add;
-		add = add * 10 + n;
+		scanf("%d", &n);
+		for (int i = 0; i < 32; i += 2)
+		{
+			if (((n >> i) & 1) == 1)
+			{
+				even[15 - i/2] = '1';
+			}
+			else
+			{
+				even[15 - i / 2] = '0';
+			}
+		}
+		for (int i = 1; i < 32; i += 2)
+		{
+			if (((n >> i) & 1) == 1)
+			{
+				odd[15 - i / 2] = '1';
+			}
+			else
+			{
+				odd[15 - i / 2] = '0';
+			}
+		}
+		printf("odd:%s\neven:%s", odd, even);
 	}
-	printf("%d", sum);
+
 	return 0;
 }
