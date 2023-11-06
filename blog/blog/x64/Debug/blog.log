@@ -1,3 +1,2 @@
 ﻿  test.cpp
-D:\C_VS_MONTH10\blog\blog\test.cpp(124,8): warning C4477: “scanf”: 格式字符串“%c”需要类型“char *”的参数，但可变参数 1 拥有了类型“int *”
   blog.vcxproj -> D:\C_VS_MONTH10\blog\x64\Debug\blog.exe

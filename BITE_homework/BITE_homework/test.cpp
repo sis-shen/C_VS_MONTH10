@@ -554,41 +554,91 @@
 //	return 0;
 //}
 
+//#include <stdio.h>
+//
+//int main()
+//{
+//	char odd[17] = { 0 };
+//	char even[17] = { 0 };
+//
+//	int n = 0;
+//	while (1)
+//	{
+//		scanf("%d", &n);
+//		for (int i = 0; i < 32; i += 2)
+//		{
+//			if (((n >> i) & 1) == 1)
+//			{
+//				even[15 - i/2] = '1';
+//			}
+//			else
+//			{
+//				even[15 - i / 2] = '0';
+//			}
+//		}
+//		for (int i = 1; i < 32; i += 2)
+//		{
+//			if (((n >> i) & 1) == 1)
+//			{
+//				odd[15 - i / 2] = '1';
+//			}
+//			else
+//			{
+//				odd[15 - i / 2] = '0';
+//			}
+//		}
+//		printf("odd:%s\neven:%s", odd, even);
+//	}
+//
+//	return 0;
+//}
+
+//******************
 #include <stdio.h>
+
+int bin_search(int arr[], int left, int right, int key)
+{
+	if (arr[left] > key || arr[right] < key)
+	{
+		return -1;
+	}
+	else
+	{
+		int mid = 0;
+		while (left <= right)
+		{
+			mid = (left + right) / 2;
+			if (arr[mid] == key)
+			{
+				return mid;
+			}
+			else if (arr[mid] > key)
+			{
+				right = mid-1;
+			}
+			else
+			{
+				left = mid+1;
+			}
+		}
+	}
+	return -1;
+}
 
 int main()
 {
-	char odd[17] = { 0 };
-	char even[17] = { 0 };
-
-	int n = 0;
-	while (1)
-	{
-		scanf("%d", &n);
-		for (int i = 0; i < 32; i += 2)
-		{
-			if (((n >> i) & 1) == 1)
-			{
-				even[15 - i/2] = '1';
-			}
-			else
-			{
-				even[15 - i / 2] = '0';
-			}
-		}
-		for (int i = 1; i < 32; i += 2)
-		{
-			if (((n >> i) & 1) == 1)
-			{
-				odd[15 - i / 2] = '1';
-			}
-			else
-			{
-				odd[15 - i / 2] = '0';
-			}
-		}
-		printf("odd:%s\neven:%s", odd, even);
-	}
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int left = 0;
+	int right = 9;
+	int key = 10;
+	int ret = bin_search(arr, left, right, key);
+	printf("%d\n", ret);
+	key = 1;
+	ret = bin_search(arr, left, right, key);
+	printf("%d\n", ret);
+	key = 5;
+	ret = bin_search(arr, left, right, key);
+	printf("%d\n", ret);
 
 	return 0;
 }

@@ -117,10 +117,7 @@
 
 int main()
 {
-	char str[100] = { 0 };
+	char str[20] = { 0 };
 	scanf("%s", str);
-	
-	int x = 0;
-	scanf("%c", &x);
 	return 0;
 }
