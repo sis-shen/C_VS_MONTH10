@@ -1306,39 +1306,39 @@
 //	return 1;
 //}
 //
-//int main()
-//{
-//	char str[60];
-//	while (~scanf("%s", str))
-//	{
-//		int sz = strlen(str);
-//		if (!isPalindrome(str, sz))
-//		{
-//			printf("NO\n");
-//		}
-//		else
-//		{
-//			int cnt = 0;
-//			int letter[30] = { 0 };
-//			for (int i = 0; i < sz; i++)
-//			{
-//				letter[str[i] - 97]++;
-//			}
-//
-//			for (int i = 0; i < 26; i++)
-//			{
-//				if (letter[i])
-//				{
-//					cnt++;
-//				}
-//			}
-//
-//			printf("YES %d\n", cnt);
-//
-//		}
-//	}
-//	return 0;
-//}
+int main()
+{
+	char str[60];
+	while (~scanf("%s", str))
+	{
+		int sz = strlen(str);
+		if (!isPalindrome(str, sz))
+		{
+			printf("NO\n");
+		}
+		else
+		{
+			int cnt = 0;
+			int letter[30] = { 0 };//用于26个字母计数
+			for (int i = 0; i < sz; i++)
+			{
+				letter[str[i] - 97]++;//将小写字母a~z的字符转为0~25
+			}
+
+			for (int i = 0; i < 26; i++)//统计数量
+			{
+				if (letter[i])
+				{
+					cnt++;
+				}
+			}
+
+			printf("YES %d\n", cnt);
+
+		}
+	}
+	return 0;
+}
 
 //********************************************
 //问题 AP: 20级期末机试1-评委打分（10分）
