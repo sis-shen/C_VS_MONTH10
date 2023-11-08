@@ -112,12 +112,63 @@
 //}
 
 //
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
+//
+//int i;
+//
+//
+//int main()
+//{
+//	i--;
+//	printf("%d", i>(unsigned)4);
+//	return 0;
+//}
+
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char str[100] = { 0 };
+//	scanf("%s", str);
+//	int len = strlen(str);
+//	int sz = sizeof(str) / sizeof(str[0]);
+//	printf("数组str的长度是:%d\n", sz);
+//	printf("str里存的字符串长度是:%d", len);
+//	return 0;
+//}
+
+
+
+
+
+
 
 int main()
 {
-	char str[20] = { 0 };
-	scanf("%s", str);
+	char str[] = "abcdef";
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
