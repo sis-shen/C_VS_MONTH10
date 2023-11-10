@@ -141,20 +141,104 @@
 
 
 
+//
+//
+//
+//
+//int main()
+//{
+//	char str[] = "abcdef";//声明字符数组str并用字符串初始化
+//	return 0;
+//}
 
 
 
+
+
+//
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	//声明一个没有'\0'结尾的数组
+//
+//	char str[] = { 'a','b','c','d','e','f' };
+//	printf("%s\n", str);
+//
+//	int sz = strlen(str);
+//	printf("长度为: %d", sz);
+//	return 0;
+//}
+
+//#include <stdio.h>
+//void functionP(char* str){printf(str);
+//                                     }void(*fun(void (*input)(char* str)))(char(*str)){
+//	return input;}int main()
+//{char(str[]) = "hello world";{
+//	;}				{void(*pp)(char* str) = fun(functionP);pp(str);}
+//		return 0;
+//				}
+
+
+
+
+//int num = '6' - '0';//减去'0'把字符转成整型
+
+
+
+
+
+
+
+
+
+
+//#include <stdio.h>
+//#include <string.h>
+//
+//int main()
+//{
+//	char str[] = { 'a','b','c','d','e','f' };
+//	printf("%s\n", str);
+//	int len = strlen(str);
+//	printf("%d", len);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+//#include <stdio.h>
+//
+//int main()
+//{
+//	char str3[10] = { 0 };
+//
+//	char str4[10] = "abc";
+//
+//	char str5[10] = { 'a','b','c','d' };
+//
+//	return 0;
+//}
+
+
+
+
+
+#include <stdio.h>
 
 int main()
 {
-	char str[] = "abcdef";
+	const char* pstr = "abc";
 	return 0;
 }
-
-
-
-
-
 
 
 

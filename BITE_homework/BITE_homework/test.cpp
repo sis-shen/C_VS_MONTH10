@@ -594,51 +594,99 @@
 //}
 
 //******************
-#include <stdio.h>
+//#include <stdio.h>
+//
+//int bin_search(int arr[], int left, int right, int key)
+//{
+//	if (arr[left] > key || arr[right] < key)
+//	{
+//		return -1;
+//	}
+//	else
+//	{
+//		int mid = 0;
+//		while (left <= right)
+//		{
+//			mid = (left + right) / 2;
+//			if (arr[mid] == key)
+//			{
+//				return mid;
+//			}
+//			else if (arr[mid] > key)
+//			{
+//				right = mid-1;
+//			}
+//			else
+//			{
+//				left = mid+1;
+//			}
+//		}
+//	}
+//	return -1;
+//}
+//
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int left = 0;
+//	int right = 9;
+//	int key = 10;
+//	int ret = bin_search(arr, left, right, key);
+//	printf("%d\n", ret);
+//	key = 1;
+//	ret = bin_search(arr, left, right, key);
+//	printf("%d\n", ret);
+//	key = 5;
+//	ret = bin_search(arr, left, right, key);
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
 
-int bin_search(int arr[], int left, int right, int key)
-{
-	if (arr[left] > key || arr[right] < key)
-	{
-		return -1;
-	}
-	else
-	{
-		int mid = 0;
-		while (left <= right)
-		{
-			mid = (left + right) / 2;
-			if (arr[mid] == key)
-			{
-				return mid;
-			}
-			else if (arr[mid] > key)
-			{
-				right = mid-1;
-			}
-			else
-			{
-				left = mid+1;
-			}
-		}
-	}
-	return -1;
-}
+//#include <stdio.h>
+//#include <string.h>
+//void reverse(char* left, char* right)
+//{
+//	while (left < right)
+//	{
+//		char tmp = *left;
+//		*left++ = *right;
+//		*right-- = tmp;
+//	}
+//}
+//
+//int main()
+//{
+//	char str[100] = { 0 };
+//	scanf("%s", str);
+//	int len = strlen(str);
+//	int k = 0;
+//	scanf("%d", &k);
+//	k %= len;
+//	reverse(str, str + len - 1);
+//	reverse(str + len - k, str + len - 1);
+//	reverse(str, str + len - k - 1);
+//	printf(str);
+//
+//	return 0;
+//}
 
-int main()
-{
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int left = 0;
-	int right = 9;
-	int key = 10;
-	int ret = bin_search(arr, left, right, key);
-	printf("%d\n", ret);
-	key = 1;
-	ret = bin_search(arr, left, right, key);
-	printf("%d\n", ret);
-	key = 5;
-	ret = bin_search(arr, left, right, key);
-	printf("%d\n", ret);
-
-	return 0;
-}
+//#include <stdio.h>
+//
+//int my_strlen(char* str)
+//{
+//	int cnt = 0;
+//	while (*str != '\0')
+//	{
+//		cnt++;
+//		str++;
+//	}
+//	return cnt;
+//}
+//
+//int main()
+//{
+//	char str[] = "hello";
+//	printf("%d", my_strlen(str));
+//	return 0;
+//}

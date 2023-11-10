@@ -1306,39 +1306,39 @@
 //	return 1;
 //}
 //
-int main()
-{
-	char str[60];
-	while (~scanf("%s", str))
-	{
-		int sz = strlen(str);
-		if (!isPalindrome(str, sz))
-		{
-			printf("NO\n");
-		}
-		else
-		{
-			int cnt = 0;
-			int letter[30] = { 0 };//用于26个字母计数
-			for (int i = 0; i < sz; i++)
-			{
-				letter[str[i] - 97]++;//将小写字母a~z的字符转为0~25
-			}
-
-			for (int i = 0; i < 26; i++)//统计数量
-			{
-				if (letter[i])
-				{
-					cnt++;
-				}
-			}
-
-			printf("YES %d\n", cnt);
-
-		}
-	}
-	return 0;
-}
+//int main()
+//{
+//	char str[60];
+//	while (~scanf("%s", str))
+//	{
+//		int sz = strlen(str);
+//		if (!isPalindrome(str, sz))
+//		{
+//			printf("NO\n");
+//		}
+//		else
+//		{
+//			int cnt = 0;
+//			int letter[30] = { 0 };//用于26个字母计数
+//			for (int i = 0; i < sz; i++)
+//			{
+//				letter[str[i] - 97]++;//将小写字母a~z的字符转为0~25
+//			}
+//
+//			for (int i = 0; i < 26; i++)//统计数量
+//			{
+//				if (letter[i])
+//				{
+//					cnt++;
+//				}
+//			}
+//
+//			printf("YES %d\n", cnt);
+//
+//		}
+//	}
+//	return 0;
+//}
 
 //********************************************
 //问题 AP: 20级期末机试1-评委打分（10分）
@@ -1988,32 +1988,32 @@ int main()
 
 //**************************************'
 //问题 AZ: 21级期中机试-东南西北（20分）
-#include <stdio.h>
-
-int main()
-{
-	int n = 0;
-	while (~scanf("%d", &n))
-	{
-		int sum = 0;
-		char str[1008] = { 0 };
-
-		scanf("%s", str);
-		for (int i = 0; i < n; i++)
-		{
-
-
-			if (str[i] == 'L') sum--;
-			else sum++;
-		}
-
-		char dst[] = {'N','E','S','W'};
-		while (sum >= 4) sum -= 4;
-		while (sum < 0) sum += 4;
-		printf("%c\n", dst[sum]);
-	}
-	return 0;
-}
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (~scanf("%d", &n))
+//	{
+//		int sum = 0;
+//		char str[1008] = { 0 };
+//
+//		scanf("%s", str);
+//		for (int i = 0; i < n; i++)
+//		{
+//
+//
+//			if (str[i] == 'L') sum--;
+//			else sum++;
+//		}
+//
+//		char dst[] = {'N','E','S','W'};
+//		while (sum >= 4) sum -= 4;
+//		while (sum < 0) sum += 4;
+//		printf("%c\n", dst[sum]);
+//	}
+//	return 0;
+//}
 
 //**********************************************
 //问题 BA: 21级期中机试-研究病毒（20分）
@@ -3434,38 +3434,52 @@ int main()
 
 //*************************************************************************
 //问题 BT: 最大公约数三角形（20分）
-//#include <stdio.h>
-//
-//int gcd(int x, int y)
-//{
-//	int c = x % y;
-//	if (c != 0)
-//	{
-//		x = y;
-//		y = c;
-//	}
-//	else
-//	{
-//		return y;
-//	}
-//
-//
-//}
-//
-//int main()
-//{
-//	int T = 0;
-//	scanf("%d", &T);
-//	for (int t = 0; t < T; t++)
-//	{
-//		int x, y;
-//		scanf("%d %d", &x, &y);
-//		
-//	}
-//
-//
-//	return 0;
-//}
+#include <stdio.h>
+
+int gcd(int x, int y)
+{
+	int c = x % y;
+	if (c != 0)
+	{
+		x = y;
+		y = c;
+	}
+	else
+	{
+		return y;
+	}
+}
+
+
+
+int main()
+{
+	int T = 0;
+	scanf("%d", &T);
+	for (int t = 0; t < T; t++)
+	{
+		int n = 0;
+		scanf("%d", &n);
+		int sum = 0;
+		for (int num1 = 1; num1 <= n; num1++)
+		{
+			for (int num2 = num1; num2 <= n; num2++)
+			{
+				for (int num3 = num2; num3 <= n; num3++)
+				{
+					if (gcd(num1, num2) == gcd(num1, num3) && gcd(num1, num2) == gcd(num2, num3))
+					{
+						sum++;
+					}
+				}
+			}
+		}
+		printf("%d\n", sum);
+	}
+
+
+	return 0;
+}
 
 //****************************************
 ////问题 BE: 21级期末机试-格式转换（20分）
