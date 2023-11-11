@@ -3434,52 +3434,52 @@
 
 //*************************************************************************
 //问题 BT: 最大公约数三角形（20分）
-#include <stdio.h>
-
-int gcd(int x, int y)
-{
-	int c = x % y;
-	if (c != 0)
-	{
-		x = y;
-		y = c;
-	}
-	else
-	{
-		return y;
-	}
-}
-
-
-
-int main()
-{
-	int T = 0;
-	scanf("%d", &T);
-	for (int t = 0; t < T; t++)
-	{
-		int n = 0;
-		scanf("%d", &n);
-		int sum = 0;
-		for (int num1 = 1; num1 <= n; num1++)
-		{
-			for (int num2 = num1; num2 <= n; num2++)
-			{
-				for (int num3 = num2; num3 <= n; num3++)
-				{
-					if (gcd(num1, num2) == gcd(num1, num3) && gcd(num1, num2) == gcd(num2, num3))
-					{
-						sum++;
-					}
-				}
-			}
-		}
-		printf("%d\n", sum);
-	}
-
-
-	return 0;
-}
+//#include <stdio.h>
+//
+//int gcd(int x, int y)
+//{
+//	int c = x % y;
+//	if (c != 0)
+//	{
+//		x = y;
+//		y = c;
+//	}
+//	else
+//	{
+//		return y;
+//	}
+//}
+//
+//
+//
+//int main()
+//{
+//	int T = 0;
+//	scanf("%d", &T);
+//	for (int t = 0; t < T; t++)
+//	{
+//		int n = 0;
+//		scanf("%d", &n);
+//		int sum = 0;
+//		for (int num1 = 1; num1 <= n; num1++)
+//		{
+//			for (int num2 = num1; num2 <= n; num2++)
+//			{
+//				for (int num3 = num2; num3 <= n; num3++)
+//				{
+//					if (gcd(num1, num2) == gcd(num1, num3) && gcd(num1, num2) == gcd(num2, num3))
+//					{
+//						sum++;
+//					}
+//				}
+//			}
+//		}
+//		printf("%d\n", sum);
+//	}
+//
+//
+//	return 0;
+//}
 
 //****************************************
 ////问题 BE: 21级期末机试-格式转换（20分）

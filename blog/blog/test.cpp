@@ -232,11 +232,42 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <stdio.h>
 
 int main()
 {
-	const char* pstr = "abc";
+	char str1[10] = { 0 };
+	scanf("%s", str1);
+	char str2[10];
+	scanf("%s", str2);
 	return 0;
 }
 
