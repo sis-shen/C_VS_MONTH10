@@ -690,3 +690,102 @@
 //	printf("%d", my_strlen(str));
 //	return 0;
 //}
+
+
+
+
+//#include <stdio.h>
+//
+//void printArr(int* arr, int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d\n", *(arr + i));
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	printArr(arr, sz);
+//	return 0;
+//}
+
+
+
+//#include <stdio.h>
+//
+//void bubble_sort(int* arr, int sz)
+//{
+//	for (int i = 0; i < sz - 1; i++)
+//	{
+//		for (int j = 0; j < sz - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+	//int arr[] = { 2,6,7,3,5,9,10,1 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+#include <stdio.h>
+
+void changeArr(int* arr, int sz)
+{
+	int* left = arr;
+	int* right = arr + sz - 1;
+	//ÕÒÅ¼Êý
+	while (*left % 2 == 1)
+	{
+		left++;
+	}
+	//ÕÒÆæÊý
+	while (*right % 2 == 0)
+	{
+		right--;
+	}
+	while (left < right)
+	{
+		int tmp = *left;
+		*left = *right;
+		*right = tmp;
+		//ÕÒÅ¼Êý
+		while (*left % 2 == 1)
+		{
+			left++;
+		}
+		//ÕÒÆæÊý
+		while (*right % 2 == 0)
+		{
+			right--;
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = { 2,6,7,3,5,9,10,1 };
+	int sz1 = sizeof(arr) / sizeof(arr[0]);
+	changeArr(arr, sz1);
+	for (int i = 0; i < sz1; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}

@@ -264,10 +264,8 @@
 
 int main()
 {
-	char str1[10] = { 0 };
-	scanf("%s", str1);
-	char str2[10];
-	scanf("%s", str2);
+	char str[4] = { 0 };
+	scanf("%s", str);
 	return 0;
 }
 
