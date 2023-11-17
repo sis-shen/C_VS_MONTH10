@@ -639,44 +639,44 @@
 
 //**************************************
 //问题 R: 幸运儿
-//#include <stdio.h>
-//
-//int main()
-//{
-//	int n = 0;
-//	while (scanf("%d", &n) != EOF)
-//	{
-//		int arr[50] = { 0 };
-//		for (int i = 0; i < n; i++)
-//		{
-//			arr[i] = i + 1;
-//		}
-//		int sum = n;
-//		int step = 2;
-//		int begin = 1;
-//		int count = 1;
-//		while (sum > 1)
-//		{
-//			for (int i = begin; i < n; i += step)
-//			{
-//				if (sum == 2)
-//				{
-//					sum--;
-//					printf("\n1 %d\n", arr[i]);
-//					break;
-//				}
-//				sum--;
-//				printf("%d ", arr[i]);
-//				arr[i] = -1;
-//
-//			}
-//			begin += step / 2;
-//			step *= 2;
-//
-//		}
-//	}
-//	return 0;
-//}
+#include <stdio.h>
+
+int main()
+{
+	int n = 0;
+	while (scanf("%d", &n) != EOF)
+	{
+		int arr[50] = { 0 };
+		for (int i = 0; i < n; i++)
+		{
+			arr[i] = i + 1;
+		}
+		int sum = n;
+		int step = 2;
+		int begin = 1;
+		int count = 1;
+		while (sum > 1)
+		{
+			for (int i = begin; i < n; i += step)
+			{
+				if (sum == 2)
+				{
+					sum--;
+					printf("\n1 %d\n", arr[i]);
+					break;
+				}
+				sum--;
+				printf("%d ", arr[i]);
+				arr[i] = -1;
+
+			}
+			begin += step / 2;
+			step *= 2;
+
+		}
+	}
+	return 0;
+}
 
 //*********************************************
 ////问题 S: 22-循环-2-敲七
