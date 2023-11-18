@@ -1,3 +1,4 @@
 ﻿  test.cpp
-D:\C_VS_MONTH10\本班OJ\本班OJ\test.cpp(3451): warning C4715: “gcd”: 不是所有的控件路径都返回值
-  本班OJ.vcxproj -> D:\C_VS_MONTH10\本班OJ\x64\Debug\本班OJ.exe
+D:\C_coding\C_VS_MONTH10\本班OJ\本班OJ\test.cpp(1514,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\C_coding\C_VS_MONTH10\本班OJ\本班OJ\test.cpp(1536,9): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  本班OJ.vcxproj -> D:\C_coding\C_VS_MONTH10\本班OJ\x64\Debug\本班OJ.exe

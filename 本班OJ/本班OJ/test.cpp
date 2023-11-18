@@ -639,44 +639,44 @@
 
 //**************************************
 //问题 R: 幸运儿
-#include <stdio.h>
-
-int main()
-{
-	int n = 0;
-	while (scanf("%d", &n) != EOF)
-	{
-		int arr[50] = { 0 };
-		for (int i = 0; i < n; i++)
-		{
-			arr[i] = i + 1;
-		}
-		int sum = n;
-		int step = 2;
-		int begin = 1;
-		int count = 1;
-		while (sum > 1)
-		{
-			for (int i = begin; i < n; i += step)
-			{
-				if (sum == 2)
-				{
-					sum--;
-					printf("\n1 %d\n", arr[i]);
-					break;
-				}
-				sum--;
-				printf("%d ", arr[i]);
-				arr[i] = -1;
-
-			}
-			begin += step / 2;
-			step *= 2;
-
-		}
-	}
-	return 0;
-}
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		int arr[50] = { 0 };
+//		for (int i = 0; i < n; i++)
+//		{
+//			arr[i] = i + 1;
+//		}
+//		int sum = n;
+//		int step = 2;
+//		int begin = 1;
+//		int count = 1;
+//		while (sum > 1)
+//		{
+//			for (int i = begin; i < n; i += step)
+//			{
+//				if (sum == 2)
+//				{
+//					sum--;
+//					printf("\n1 %d\n", arr[i]);
+//					break;
+//				}
+//				sum--;
+//				printf("%d ", arr[i]);
+//				arr[i] = -1;
+//
+//			}
+//			begin += step / 2;
+//			step *= 2;
+//
+//		}
+//	}
+//	return 0;
+//}
 
 //*********************************************
 ////问题 S: 22-循环-2-敲七
@@ -1495,6 +1495,7 @@ int main()
 //
 //int isprime(int x)
 //{
+//	if (x == 0) return 0;
 //	if (x == 1) return 0;
 //	if (x == 2) return 1;
 //
@@ -1507,7 +1508,7 @@ int main()
 //
 //int main()
 //{
-//	char str[10000] = { 0 };
+//	char str[10050] = { 0 };
 //	while (scanf("%s", str)!= EOF)
 //	{
 //		int sz = strlen(str);
@@ -1517,7 +1518,7 @@ int main()
 //		if ((sz == 1 && str[0] == '0') || str[0] == '-')
 //		{
 //			printf("NO\n");
-//			break;
+//			continue;
 //		}
 //		//修正
 //
@@ -1531,14 +1532,19 @@ int main()
 //			}
 //		}
 //
-//		int last = 0;
-//
-//		for (int i = (strlen(str) / 3) * 3; i < strlen(str); i++)
+//		int last = -1;//没末尾时为-1,防止后面误判
+//		int i = (strlen(str) / 3) * 3;
+//		if (i < strlen(str))
 //		{
+//			last = 0;//有末尾时last置0
+//		}
+//		for (; i < strlen(str); i++)
+//		{
+//			
 //			last = last * 10 + (str[i] - '0');
 //		}
 //
-//		if (flag || (!isprime(last)))
+//		if (flag || (!isprime(last)) || last == 0)
 //		{
 //			printf("NO\n");
 //		}
@@ -3273,45 +3279,45 @@ int main()
 
 //*******************************************
 //问题 CR: 地铁出行（20分）
-//#include <stdio.h>
-//
-//int main()
-//{
-//	int n = 0;
-//	while (~scanf("%d", &n))
-//	{
-//		double sum = 0;
-//		for (int i = 0; i < n; i++)
-//		{
-//			double cost = 0;
-//			scanf("%lf", &cost);
-//			if (sum < 10 || sum >= 40)
-//			{
-//				sum += cost;
-//			}
-//			else if (10 <= sum && sum < 15)
-//			{
-//				sum += cost * 0.8;
-//			}
-//			else if (15 <= sum&&sum < 40)
-//			{
-//				sum += cost * 0.5;
-//			}
-//		}
-//
-//		if (sum >= 100)
-//		{
-//			printf("Yes\n");
-//		}
-//		else
-//		{
-//			printf("No\n");
-//		}
-//	}
-//
-//
-//	return 0;
-//}
+#include <stdio.h>
+
+int main()
+{
+	int n = 0;
+	while (~scanf("%d", &n))
+	{
+		double sum = 0;
+		for (int i = 0; i < n; i++)
+		{
+			double cost = 0;
+			scanf("%lf", &cost);
+			if (sum < 10 || sum >= 40)
+			{
+				sum += cost;
+			}
+			else if (10 <= sum && sum < 15)
+			{
+				sum += cost * 0.8;
+			}
+			else if (15 <= sum&&sum < 40)
+			{
+				sum += cost * 0.5;
+			}
+		}
+
+		if (sum >= 100)
+		{
+			printf("Yes\n");
+		}
+		else
+		{
+			printf("No\n");
+		}
+	}
+
+
+	return 0;
+}
 
 //-****************************
 //问题 L: 22-循环-1-整钞换零
