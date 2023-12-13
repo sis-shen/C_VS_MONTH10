@@ -1490,72 +1490,72 @@
 
 //**************************************
 //问题 AS: 20级期末机试2-素数串（10分）
-#include <stdio.h>
-#include <string.h>
-
-int isprime(int x)
-{
-	if (x == 0) return 0;
-	if (x == 1) return 0;
-	if (x == 2) return 1;
-
-	for (int i = 2; i < x; i++)
-	{
-		if (x % i == 0) return 0;
-	}
-	return 1;
-}
-
-int main()
-{
-	char str[10050] = { 0 };
-	while (scanf("%s", str)!= EOF)
-	{
-		int sz = strlen(str);
-		int flag = 0;
-
-		//修正
-		if ((sz == 1 && str[0] == '0') || str[0] == '-')
-		{
-			printf("NO\n");
-			continue;
-		}
-		//修正
-
-		for (int i = 0; i < (strlen(str) / 3) * 3; i += 3)
-		{
-			int num = (str[i] - '0') * 100 + (str[i + 1] - '0') * 10 + str[i + 2] - '0';
-			if (!isprime(num))
-			{
-				flag = 1;
-				break;
-			}
-		}
-
-		int last = -1;//没末尾时为-1,防止后面误判
-		int i = (strlen(str) / 3) * 3;
-		if (i < strlen(str))
-		{
-			last = 0;//有末尾时last置0
-		}
-		for (; i < strlen(str); i++)
-		{
-			
-			last = last * 10 + (str[i] - '0');
-		}
-
-		if (flag || (!isprime(last)) || last == 0)
-		{
-			printf("NO\n");
-		}
-		else
-		{
-			printf("YES\n");
-		}
-
-	}
-	return 0;
-}
+//#include <stdio.h>
+//#include <string.h>
+//
+//int isprime(int x)
+//{
+//	if (x == 0) return 0;
+//	if (x == 1) return 0;
+//	if (x == 2) return 1;
+//
+//	for (int i = 2; i < x; i++)
+//	{
+//		if (x % i == 0) return 0;
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char str[10050] = { 0 };
+//	while (scanf("%s", str)!= EOF)
+//	{
+//		int sz = strlen(str);
+//		int flag = 0;
+//
+//		//修正
+//		if ((sz == 1 && str[0] == '0') || str[0] == '-')
+//		{
+//			printf("NO\n");
+//			continue;
+//		}
+//		//修正
+//
+//		for (int i = 0; i < (strlen(str) / 3) * 3; i += 3)
+//		{
+//			int num = (str[i] - '0') * 100 + (str[i + 1] - '0') * 10 + str[i + 2] - '0';
+//			if (!isprime(num))
+//			{
+//				flag = 1;
+//				break;
+//			}
+//		}
+//
+//		int last = -1;//没末尾时为-1,防止后面误判
+//		int i = (strlen(str) / 3) * 3;
+//		if (i < strlen(str))
+//		{
+//			last = 0;//有末尾时last置0
+//		}
+//		for (; i < strlen(str); i++)
+//		{
+//			
+//			last = last * 10 + (str[i] - '0');
+//		}
+//
+//		if (flag || (!isprime(last)) || last == 0)
+//		{
+//			printf("NO\n");
+//		}
+//		else
+//		{
+//			printf("YES\n");
+//		}
+//
+//	}
+//	return 0;
+//}
 
 //-------ver.2----------
 //#include <stdio.h>

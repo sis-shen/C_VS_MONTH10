@@ -2,9 +2,9 @@
 
 DListNode* DListInit(DListNode* phead)
 {
-	phead = (DListNode*)malloc(sizeof(DListNode));
+	phead = (DListNode*)malloc(sizeof(DListNode));//创建哨兵位
 	phead->next = phead;
-	phead->prev = phead;
+	phead->prev = phead;//双向
 	return phead;
 }
 
@@ -13,11 +13,16 @@ void DListPushBack(DListNode* phead, DLTDataType n)
 	assert(phead);
 	DListNode* tail = phead->prev;
 	DListNode* newNode = (DListNode*)malloc(sizeof(DListNode));
+	if (newNode == NULL)
+	{
+		perror("malloc failed\n");
+		return;
+	}
 	newNode->data = n;
-	newNode->next = phead;
-	tail->next = newNode;
+	newNode->next = phead;//指回哨兵位
+	tail->next = newNode;//完成尾插
 	newNode->prev = tail;
-	phead->prev = newNode;
+	phead->prev = newNode;//完成新的循环
 }
 
 void DListPopBack(DListNode* phead, DLTDataType n)
@@ -48,5 +53,26 @@ void DListNodePrint(DListNode* phead)
 
 void DListPushFront(DListNode* phead, DLTDataType n)
 {
+	assert(phead);
+	DListNode* tail = phead->prev;
+	DListNode* newNode = (DListNode*)malloc(sizeof(DListNode));
+	if (newNode == NULL)
+	{
+		perror("malloc failed\n");
+		return;
+	}
+	newNode->data = n;
 
+	phead->next->prev = newNode;
+	newNode->next = phead->next;
+	newNode->prev = phead;
+	phead->next = newNode;
+}
+
+void DListPopFront(DListNode* phead, DLTDataType n)
+{
+	DListNode* Front = phead->next;
+	phead->next = Front->next;
+	Front->next->prev = phead;
+	
 }
