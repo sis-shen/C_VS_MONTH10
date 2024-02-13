@@ -2414,45 +2414,45 @@
 
 //**************************************
 //问题 BL: 21级补考-奇数序列（20分）
-//#include <stdio.h>
-//
-//int main()
-//{
-//	int n = 0;
-//	while (scanf("%d", &n) != EOF)
-//	{
-//		int arr[105] = { 0 };
-//		for (int i = 0; i < n; i++)
-//		{
-//			scanf("%d", &arr[i]);
-//		}
-//
-//		if (n % 2 == 0)
-//		{
-//			printf("NO\n");
-//		}
-//		else
-//		{
-//			int sum = 0;
-//			for (int i = 0; i < n; i++)
-//			{
-//				sum += arr[i];
-//			}
-//
-//			if (sum % 2 == 0)
-//			{
-//				printf("NO\n");
-//			}
-//			else
-//			{
-//				printf("YES\n");
-//			}
-//		}
-//
-//	}
-//
-//	return 0;
-//}
+#include <stdio.h>
+
+int main()
+{
+	int n = 0;
+	while (scanf("%d", &n) != EOF)
+	{
+		int arr[105] = { 0 };
+		for (int i = 0; i < n; i++)
+		{
+			scanf("%d", &arr[i]);
+		}
+
+		if (n % 2 == 0)
+		{
+			printf("NO\n");
+		}
+		else
+		{
+			int sum = 0;
+			for (int i = 0; i < n; i++)
+			{
+				sum += arr[i];
+			}
+
+			if (sum % 2 == 0)
+			{
+				printf("NO\n");
+			}
+			else
+			{
+				printf("YES\n");
+			}
+		}
+
+	}
+
+	return 0;
+}
 
 //********************************
 //问题 BM: 21级补考-加密算法（20分）
